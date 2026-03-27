@@ -2,7 +2,7 @@
   "editor.codeActionsOnSave": {
     "source.organizeImports": "explicit"
   },
-  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.defaultFormatter": "oxc.oxc-vscode",
   "editor.formatOnSave": true,
   "editor.quickSuggestions": {
     "strings": "on"
@@ -14,7 +14,6 @@
   },
   "eslint.nodePath": "./node_modules",
   "eslint.runtime": "node",
-  "prettier.prettierPath": "./node_modules/prettier",
   "typescript.tsdk": "./node_modules/typescript/lib",
   "typescript.enablePromptUseWorkspaceTsdk": true,
   "vitest.commandLine": "bun run vitest",

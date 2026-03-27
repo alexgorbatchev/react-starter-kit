@@ -6,7 +6,7 @@
     "dbaeumer.vscode-eslint",
     "dbcode.dbcode",
     "editorconfig.editorconfig",
-    "esbenp.prettier-vscode",
+    "oxc.oxc-vscode",
     "github.copilot",
     "github.vscode-github-actions",
     "hashicorp.terraform",

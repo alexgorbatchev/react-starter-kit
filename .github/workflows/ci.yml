@@ -33,7 +33,7 @@ jobs:
       - run: bun install --frozen-lockfile
 
       # Code style (PRs only — merged code was already checked)
-      - run: bun prettier --check .
+      - run: bun run format:check
         if: github.event_name == 'pull_request'
       - run: bun lint
         if: github.event_name == 'pull_request'

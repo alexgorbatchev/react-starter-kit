@@ -20,7 +20,7 @@ export async function execCommand(
 }
 
 /**
- * Format generated UI component files with Prettier
+ * Format generated UI component files with Oxfmt
  */
 export async function formatGeneratedFiles(): Promise<void> {
   try {
@@ -40,12 +40,12 @@ export async function formatGeneratedFiles(): Promise<void> {
       return;
     }
 
-    console.log("🎨 Formatting generated files with Prettier...");
+    console.log("🎨 Formatting generated files with Oxfmt...");
 
-    await execCommand("bunx", ["prettier", "--write", ...componentFiles]);
+    await execCommand("bunx", ["oxfmt", ...componentFiles]);
 
     console.log("✨ Files formatted successfully");
   } catch (error) {
-    console.warn("⚠️  Failed to format files with Prettier:", error);
+    console.warn("⚠️  Failed to format files with Oxfmt:", error);
   }
 }

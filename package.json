@@ -15,12 +15,14 @@
   ],
   "scripts": {
     "dev": "bun --filter @repo/web --filter @repo/api --filter @repo/app dev",
+    "format": "oxfmt",
+    "format:check": "oxfmt --check",
     "lint": "eslint --cache --report-unused-disable-directives .",
     "test": "vitest",
     "typecheck": "tsc --build",
     "build:types": "tsc --build",
     "build": "bun --filter @repo/email --filter @repo/web --filter @repo/api --filter @repo/app build",
-    "generate:types": "bun wrangler types --config apps/api/wrangler.jsonc --include-runtime=false apps/api/types/cloudflare-env.d.ts && bun prettier --write apps/api/types/*-env.d.ts",
+    "generate:types": "bun wrangler types --config apps/api/wrangler.jsonc --include-runtime=false apps/api/types/cloudflare-env.d.ts && oxfmt apps/api/types/*-env.d.ts",
     "prepare": "husky",
     "docs:dev": "vitepress dev docs",
     "docs:build": "vitepress build docs",
@@ -108,7 +110,6 @@
     "lint-staged": "^16.2.7",
     "mermaid": "^11.12.3",
     "npm-check": "^6.0.1",
-    "prettier": "^3.8.1",
     "react": "^19.2.4",
     "relay-config": "^12.0.1",
     "srcpack": "^0.1.15",
@@ -119,36 +120,15 @@
     "vitepress": "2.0.0-alpha.16",
     "vitepress-plugin-llms": "^1.11.0",
     "vitest": "~4.0.18",
-    "wrangler": "^4.66.0"
-  },
-  "prettier": {
-    "printWidth": 80,
-    "tabWidth": 2,
-    "useTabs": false,
-    "semi": true,
-    "singleQuote": false,
-    "quoteProps": "as-needed",
-    "jsxSingleQuote": false,
-    "trailingComma": "all",
-    "bracketSpacing": true,
-    "bracketSameLine": false,
-    "arrowParens": "always",
-    "endOfLine": "lf",
-    "overrides": [
-      {
-        "files": "*.jsonc",
-        "options": {
-          "trailingComma": "none"
-        }
-      }
-    ]
+    "wrangler": "^4.66.0",
+    "oxfmt": "^0.41.0"
   },
   "lint-staged": {
     "*.{js,jsx,ts,tsx,mjs,cjs}": [
       "bunx eslint --max-warnings=0 --report-unused-disable-directives"
     ],
     "*": [
-      "bunx prettier --check --ignore-unknown"
+      "oxfmt --check --no-error-on-unmatched-pattern"
     ]
   }
 }
