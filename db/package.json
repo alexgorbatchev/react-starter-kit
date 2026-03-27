@@ -31,7 +31,7 @@
     "up": "bun --bun drizzle-kit up",
     "check": "bun --bun drizzle-kit check",
     "drop": "bun --bun drizzle-kit drop",
-    "typecheck": "tsc --noEmit"
+    "typecheck": "tsgo --noEmit"
   },
   "peerDependencies": {
     "drizzle-orm": "^0.45.1"
@@ -43,6 +43,7 @@
     "dotenv": "^17.3.1",
     "drizzle-kit": "^0.31.9",
     "drizzle-orm": "^0.45.1",
+    "@typescript/native-preview": "7.0.0-dev.20260326.1",
     "typescript": "~5.9.3"
   },
   "dependencies": {

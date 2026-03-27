@@ -13,7 +13,7 @@
     "dev": "bun run --watch --env-file ../../.env --env-file ../../.env.local ./dev.ts",
     "build": "bun build index.ts --outdir dist --target bun",
     "test": "vitest",
-    "typecheck": "tsc --noEmit",
+    "typecheck": "tsgo --noEmit",
     "deploy": "wrangler deploy --env-file ../../.env --env-file ../../.env.local",
     "logs": "wrangler tail --env-file ../../.env --env-file ../../.env.local"
   },
@@ -42,6 +42,7 @@
     "@repo/typescript-config": "workspace:*",
     "@types/bun": "^1.3.9",
     "hono": "^4.11.10",
+    "@typescript/native-preview": "7.0.0-dev.20260326.1",
     "typescript": "~5.9.3",
     "vitest": "~4.0.18",
     "wrangler": "^4.66.0",

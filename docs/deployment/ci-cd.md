@@ -38,7 +38,7 @@ steps:
 
   # Build and test
   - run: bun email:build # Email templates (needed for types)
-  - run: bun tsc --build # Type checking
+  - run: bun run tsgo --build # Type checking
   - run: bun run test -- --run # Vitest
   - run: bun --filter @repo/web build
   - run: bun --filter @repo/api build

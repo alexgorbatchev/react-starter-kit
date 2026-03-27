@@ -2,8 +2,7 @@
   "extends": "../../packages/typescript-config/react.jsonc",
   "compilerOptions": {
     "noEmit": true,
-    "tsBuildInfoFile": "../../.cache/tsconfig/web.tsbuildinfo",
-    "baseUrl": ".",
+    "tsBuildInfoFile": "../../.cache/tsconfig/app.tsbuildinfo",
     "paths": {
       "@/*": ["./*"],
       "@repo/api": ["../api"],

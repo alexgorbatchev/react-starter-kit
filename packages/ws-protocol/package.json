@@ -10,7 +10,7 @@
     "./package.json": "./package.json"
   },
   "scripts": {
-    "typecheck": "tsc --noEmit",
+    "typecheck": "tsgo --noEmit",
     "example": "bun run example.ts"
   },
   "peerDependencies": {
@@ -24,6 +24,7 @@
     "@ws-kit/memory": "^0.10.1",
     "@ws-kit/pubsub": "^0.10.2",
     "@ws-kit/zod": "^0.10.2",
+    "@typescript/native-preview": "7.0.0-dev.20260326.1",
     "typescript": "~5.9.3",
     "zod": "^4.3.6"
   }

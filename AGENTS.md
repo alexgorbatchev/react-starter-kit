@@ -27,7 +27,7 @@ bun dev                        # Start web + api + app concurrently
 bun build                      # Build email → web → api → app (in order)
 bun test                       # Vitest (watch mode; --run for single run)
 bun lint                       # Oxlint
-bun typecheck                  # tsc --build
+bun typecheck                  # tsgo --build
 bun ui:add <component>         # Add shadcn/ui component to packages/ui
 
 # Per-app: bun {web,app,api}:{dev,build,test,deploy}

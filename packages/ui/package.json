@@ -20,10 +20,10 @@
     "components.json"
   ],
   "scripts": {
-    "build": "tsc",
-    "dev": "tsc --watch",
+    "build": "tsgo",
+    "dev": "tsgo --watch",
     "lint": "bun --cwd ../.. lint packages/ui",
-    "type-check": "tsc --noEmit",
+    "type-check": "tsgo --noEmit",
     "add": "bun scripts/add.ts",
     "list": "bun scripts/list.ts",
     "update": "bun scripts/update.ts",
@@ -53,6 +53,7 @@
     "@types/react-dom": "^19.2.3",
     "@types/react": "^19.2.14",
     "tailwindcss": "^4.2.0",
+    "@typescript/native-preview": "7.0.0-dev.20260326.1",
     "typescript": "~5.9.3"
   },
   "license": "MIT"

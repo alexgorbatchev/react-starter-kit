@@ -113,7 +113,7 @@ bun email:dev   # Email template preview at http://localhost:3001
 bun dev          # Start all services concurrently
 bun test         # Run tests (Vitest, single run)
 bun lint         # Oxlint
-bun typecheck    # TypeScript type checking (tsc --build)
+bun typecheck    # TypeScript type checking (tsgo --build)
 bun build        # Production build: email → web → api → app
 ```
 

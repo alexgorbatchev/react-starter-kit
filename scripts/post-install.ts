@@ -21,8 +21,10 @@ if (!existsSync("./.env.local")) {
 }
 
 try {
-  await execa("bun", ["run", "tsc", "--build"], { stdin: "inherit" });
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-} catch (err) {
-  // console.error(err);
+  await execa("bun", ["run", "tsgo", "--build"], { stdin: "inherit" });
+} catch (error) {
+  console.warn(
+    "Post-install type build failed. Run `bun typecheck` for details.",
+  );
+  console.warn(error);
 }

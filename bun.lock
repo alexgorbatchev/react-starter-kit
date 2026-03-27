@@ -6,6 +6,7 @@
       "name": "@repo/root",
       "devDependencies": {
         "@emotion/babel-plugin": "^11.13.5",
+        "@typescript/native-preview": "7.0.0-dev.20260326.1",
         "@ws-kit/zod": "^0.10.2",
         "gh-pages": "^6.3.0",
         "graphql": "^16.12.0",
@@ -51,6 +52,7 @@
         "@cloudflare/workers-types": "^4.20260218.0",
         "@repo/typescript-config": "workspace:*",
         "@types/bun": "^1.3.9",
+        "@typescript/native-preview": "7.0.0-dev.20260326.1",
         "hono": "^4.11.10",
         "typescript": "~5.9.3",
         "vitest": "~4.0.18",
@@ -106,6 +108,7 @@
         "@types/node": "^25.2.3",
         "@types/react": "^19.2.14",
         "@types/react-dom": "^19.2.3",
+        "@typescript/native-preview": "7.0.0-dev.20260326.1",
         "@vitejs/plugin-react": "^5.1.4",
         "@vitejs/plugin-react-swc": "^4.2.3",
         "autoprefixer": "^10.4.24",
@@ -135,6 +138,7 @@
         "@react-email/preview-server": "^5.2.8",
         "@repo/typescript-config": "workspace:*",
         "@types/react": "^19.2.14",
+        "@typescript/native-preview": "7.0.0-dev.20260326.1",
         "react-email": "^5.2.8",
         "typescript": "~5.9.3",
       },
@@ -156,6 +160,7 @@
         "@tailwindcss/postcss": "^4.2.0",
         "@types/react": "^19.2.14",
         "@types/react-dom": "^19.2.3",
+        "@typescript/native-preview": "7.0.0-dev.20260326.1",
         "postcss": "^8.5.6",
         "tailwindcss": "^4.2.0",
         "typescript": "~5.9.3",
@@ -172,6 +177,7 @@
         "@repo/typescript-config": "workspace:*",
         "@types/bun": "^1.3.9",
         "@types/node": "^25.2.3",
+        "@typescript/native-preview": "7.0.0-dev.20260326.1",
         "dotenv": "^17.3.1",
         "drizzle-kit": "^0.31.9",
         "drizzle-orm": "^0.45.1",
@@ -187,6 +193,7 @@
       "devDependencies": {
         "@repo/typescript-config": "workspace:*",
         "@types/bun": "^1.3.9",
+        "@typescript/native-preview": "7.0.0-dev.20260326.1",
         "typescript": "~5.9.3",
       },
     },
@@ -216,6 +223,7 @@
       "devDependencies": {
         "@types/react": "^19.2.14",
         "@types/react-dom": "^19.2.3",
+        "@typescript/native-preview": "7.0.0-dev.20260326.1",
         "tailwindcss": "^4.2.0",
         "typescript": "~5.9.3",
       },
@@ -230,6 +238,7 @@
       "devDependencies": {
         "@repo/typescript-config": "workspace:*",
         "@types/bun": "^1.3.9",
+        "@typescript/native-preview": "7.0.0-dev.20260326.1",
         "@ws-kit/bun": "^0.10.1",
         "@ws-kit/memory": "^0.10.1",
         "@ws-kit/pubsub": "^0.10.2",
@@ -255,6 +264,7 @@
       "devDependencies": {
         "@repo/typescript-config": "workspace:*",
         "@types/bun": "^1.3.9",
+        "@typescript/native-preview": "7.0.0-dev.20260326.1",
         "typescript": "~5.9.3",
       },
     },
@@ -1187,6 +1197,22 @@
     "@types/whatwg-mimetype": ["@types/whatwg-mimetype@3.0.2", "", {}, "sha512-c2AKvDT8ToxLIOUlN51gTiHXflsfIFisS4pO7pDPoKouJCESkhZnEy623gwP9laCy5lnLDAw1vAzu2vM2YLOrA=="],
 
     "@types/ws": ["@types/ws@8.18.1", "", { "dependencies": { "@types/node": "*" } }, "sha512-ThVF6DCVhA8kUGy+aazFQ4kXQ7E1Ty7A3ypFOe0IcJV8O/M511G99AW24irKrW56Wt44yG9+ij8FaqoBGkuBXg=="],
+
+    "@typescript/native-preview": ["@typescript/native-preview@7.0.0-dev.20260326.1", "", { "optionalDependencies": { "@typescript/native-preview-darwin-arm64": "7.0.0-dev.20260326.1", "@typescript/native-preview-darwin-x64": "7.0.0-dev.20260326.1", "@typescript/native-preview-linux-arm": "7.0.0-dev.20260326.1", "@typescript/native-preview-linux-arm64": "7.0.0-dev.20260326.1", "@typescript/native-preview-linux-x64": "7.0.0-dev.20260326.1", "@typescript/native-preview-win32-arm64": "7.0.0-dev.20260326.1", "@typescript/native-preview-win32-x64": "7.0.0-dev.20260326.1" }, "bin": { "tsgo": "bin/tsgo.js" } }, "sha512-oq2UShxAa+CS4aalhQjntuxuzTv/ud54So3lqfYcJDiQabmpGk/95rGvW5PXi28JIBlZ6AbUL6gEj0gRvIDJcQ=="],
+
+    "@typescript/native-preview-darwin-arm64": ["@typescript/native-preview-darwin-arm64@7.0.0-dev.20260326.1", "", { "os": "darwin", "cpu": "arm64" }, "sha512-eEMQnArhP/9cLOR3kkShEmT2y1dUs/kHLpwOdEHFmkXwJ477V7P0eZEtabsF5xefU9GwF+cMw4cw60ANVGPgeA=="],
+
+    "@typescript/native-preview-darwin-x64": ["@typescript/native-preview-darwin-x64@7.0.0-dev.20260326.1", "", { "os": "darwin", "cpu": "x64" }, "sha512-lUjpUTe95X4pmxIJb354UY/+1/+0Zh3z0J9ekNSWhhWgZpqQQi5rS1C5BfSJbg2aH8OXYVaEFWzxddXc8qeILg=="],
+
+    "@typescript/native-preview-linux-arm": ["@typescript/native-preview-linux-arm@7.0.0-dev.20260326.1", "", { "os": "linux", "cpu": "arm" }, "sha512-w6jrOrAw9kDoFDToECXMEkYByxjK67FNXM96SzpoX0JRB0BwkdvVclKsYeZtiP9naaW0u7lzZdfh/h0Hw6euYw=="],
+
+    "@typescript/native-preview-linux-arm64": ["@typescript/native-preview-linux-arm64@7.0.0-dev.20260326.1", "", { "os": "linux", "cpu": "arm64" }, "sha512-rhqnrDAeC1FhXuXDPQlcMULIvdlzerCc0cXJ16i18waLpZ1nr5ntvzhzzRx7+DvugemTGf2ximX6r/N9HRt+Ow=="],
+
+    "@typescript/native-preview-linux-x64": ["@typescript/native-preview-linux-x64@7.0.0-dev.20260326.1", "", { "os": "linux", "cpu": "x64" }, "sha512-F8aWt0EH8YBE3Xo2KwIcDwA0iiNq9CdV+z5/+tca70CU5HcfGJlY/c6u6UIM9ZYa1IFcykq0HMHv2FE1NAXdcw=="],
+
+    "@typescript/native-preview-win32-arm64": ["@typescript/native-preview-win32-arm64@7.0.0-dev.20260326.1", "", { "os": "win32", "cpu": "arm64" }, "sha512-OQt93BgZbvkqHVYXH56gjQv2ZOchT4FvLwkwS6jei8t5zB2P4EXmnXA/WxMWwjpYNl4HGfEF/yRkPTfhmbODig=="],
+
+    "@typescript/native-preview-win32-x64": ["@typescript/native-preview-win32-x64@7.0.0-dev.20260326.1", "", { "os": "win32", "cpu": "x64" }, "sha512-hfK3cA8+TtFICHwIo898QHd5VjbixEpdL5QcPkq3GtxuRQl7ZJvQj5Fb64fejIpxI3QicwIKgJW1jJDFCPSGsw=="],
 
     "@ungap/structured-clone": ["@ungap/structured-clone@1.3.0", "", {}, "sha512-WmoN8qaIAo7WTYWbAZuG8PYEhn5fkz7dZrqTBZ7dtt//lL2Gwms1IcnQ5yHqjDfX8Ft5j4YzDM23f87zBfDe9g=="],
 
