@@ -64,6 +64,7 @@ export function getCachedSession(
 // Both user AND session must exist to handle partial data edge cases.
 export function isAuthenticated(queryClient: QueryClient): boolean {
   const session = getCachedSession(queryClient);
+  // oxlint-disable-next-line eqeqeq
   return session?.user != null && session?.session != null;
 }
 
