@@ -36,7 +36,7 @@ React Starter Kit is proudly supported by these amazing sponsors:
 | **Marketing** | [Astro](https://astro.build/)                                                                                                                                                                 |
 | **Backend**   | [Hono](https://hono.dev/), [tRPC](https://trpc.io/), [Better Auth](https://www.better-auth.com/), [Stripe](https://stripe.com/)                                                               |
 | **Database**  | [Drizzle ORM](https://orm.drizzle.team/), [Neon PostgreSQL](https://get.neon.com/HD157BR)                                                                                                     |
-| **Tooling**   | [Vite](https://vitejs.dev/), [Vitest](https://vitest.dev/), [Oxlint](https://oxc.rs/docs/guide/usage/linter), [Oxfmt](https://oxc.rs/docs/guide/usage/formatter)                           |
+| **Tooling**   | [Vite](https://vitejs.dev/), [Vitest](https://vitest.dev/), [Oxlint](https://oxc.rs/docs/guide/usage/linter), [Oxfmt](https://oxc.rs/docs/guide/usage/formatter)                              |
 
 ## Monorepo Architecture
 
