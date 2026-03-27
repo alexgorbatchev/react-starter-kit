@@ -30,7 +30,7 @@ steps:
   - run: bun install --frozen-lockfile
 
   # Lint (PRs only – merged code was already checked)
-  - run: bun prettier --check .
+  - run: bun run format:check
   - run: bun lint
 
   # Validate Terraform formatting
