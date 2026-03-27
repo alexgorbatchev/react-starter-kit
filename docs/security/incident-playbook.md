@@ -328,7 +328,7 @@ Questions: `security@kriasoft.com`
 ### Security Tools
 
 - **Dependency Scanning**: `bun audit`, Dependabot
-- **Static Analysis**: ESLint security plugins
+- **Static Analysis**: Oxlint, Semgrep, CodeQL
 - **Secret Scanning**: GitHub secret scanning, truffleHog
 - **SAST**: Semgrep, CodeQL
 - **Testing**: Vitest for security tests

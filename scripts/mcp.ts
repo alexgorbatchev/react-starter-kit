@@ -21,11 +21,11 @@ const server = new McpServer({
 // This is just an example of a custom command that can be executed
 // from the MCP client (e.g., VS Code, GitHub Copilot, etc.).
 server.tool(
-  "eslint",
-  "Lint JavaScript and TypeScript files with ESLint",
+  "oxlint",
+  "Lint JavaScript and TypeScript files with Oxlint",
   { filename: z.string() },
   async ({ filename }) => {
-    const cmd = await $`bun run eslint ${filename}`;
+    const cmd = await $`bun lint ${filename}`;
     return { content: [{ type: "text", text: cmd.stdout }] };
   },
 );

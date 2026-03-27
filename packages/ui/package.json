@@ -22,7 +22,7 @@
   "scripts": {
     "build": "tsc",
     "dev": "tsc --watch",
-    "lint": "eslint . --max-warnings 0",
+    "lint": "bun --cwd ../.. lint packages/ui",
     "type-check": "tsc --noEmit",
     "add": "bun scripts/add.ts",
     "list": "bun scripts/list.ts",

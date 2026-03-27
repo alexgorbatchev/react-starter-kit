@@ -51,7 +51,7 @@ Before starting work on a significant change, open an issue to discuss your prop
 
    ```bash
    bun test               # Run tests (Vitest)
-   bun lint               # ESLint
+   bun lint               # Oxlint
    bun typecheck          # TypeScript
    ```
 
