@@ -31,7 +31,7 @@ function SignupTerms() {
   );
 }
 
-interface AuthFormProps extends ComponentProps<"div"> {
+interface IAuthFormProps extends ComponentProps<"div"> {
   /**
    * UI mode affecting copy, ToS display, and available methods.
    * Both modes use the same passwordless OTP flow that auto-creates accounts.
@@ -51,7 +51,7 @@ export function AuthForm({
   mode = "login",
   returnTo,
   ...props
-}: AuthFormProps) {
+}: IAuthFormProps) {
   const {
     step,
     email,
@@ -87,7 +87,11 @@ export function AuthForm({
   const isSignup = formMode === "signup";
 
   return (
-    <div className={cn("flex flex-col gap-6 w-full", className)} {...props}>
+    <div
+      className={cn("flex flex-col gap-6 w-full", className)}
+      data-testid="AuthForm"
+      {...props}
+    >
       {/* Logo */}
       <div className="flex justify-center">
         <Link to="/" aria-label="Go to homepage">
@@ -147,7 +151,7 @@ export function AuthForm({
 }
 
 // Step 1: Method Selection
-interface MethodSelectionProps {
+interface IMethodSelectionProps {
   isSignup: boolean;
   isDisabled: boolean;
   onEmailClick: () => void;
@@ -165,7 +169,7 @@ function MethodSelection({
   onError,
   onLoadingChange,
   returnTo,
-}: MethodSelectionProps) {
+}: IMethodSelectionProps) {
   const heading = isSignup ? "Create your account" : `Log in to ${APP_NAME}`;
 
   return (
@@ -233,7 +237,7 @@ function MethodSelection({
 }
 
 // Step 2: Email Input
-interface EmailInputProps {
+interface IEmailInputProps {
   email: string;
   isSignup: boolean;
   isDisabled: boolean;
@@ -249,7 +253,7 @@ function EmailInput({
   onEmailChange,
   onSubmit,
   onBack,
-}: EmailInputProps) {
+}: IEmailInputProps) {
   return (
     <div className="flex flex-col gap-6">
       <h1 className="text-2xl font-bold text-center">
@@ -294,7 +298,7 @@ function EmailInput({
 }
 
 // Step 3: OTP Verification
-interface OtpStepProps {
+interface IOtpStepProps {
   email: string;
   isDisabled: boolean;
   onSuccess: () => void;
@@ -312,7 +316,7 @@ function OtpStep({
   onLoadingChange,
   onBack,
   onCancel,
-}: OtpStepProps) {
+}: IOtpStepProps) {
   return (
     <div className="flex flex-col gap-6">
       <div className="text-center">

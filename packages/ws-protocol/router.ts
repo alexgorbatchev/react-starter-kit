@@ -31,7 +31,7 @@ import { Ping, Pong, Echo, GetUser } from "./messages";
 /**
  * Connection data stored per WebSocket connection.
  */
-export interface AppData extends Record<string, unknown> {
+export interface IAppData extends Record<string, unknown> {
   connectedAt?: number;
   userId?: string;
 }
@@ -55,8 +55,8 @@ export interface AppData extends Record<string, unknown> {
  * });
  * ```
  */
-export function createAppRouter(): Router<AppData> {
-  const router = createRouter<AppData>()
+export function createAppRouter(): Router<IAppData> {
+  const router = createRouter<IAppData>()
     .plugin(withZod())
 
     // =========================================================================

@@ -1,7 +1,8 @@
 import { Heading, Section, Text } from "@react-email/components";
-import { BaseTemplate, colors } from "../components/BaseTemplate";
+import { BaseTemplate } from "../components/BaseTemplate";
+import { baseTemplateColors } from "../components/constants";
 
-interface OTPEmailProps {
+interface IOTPEmailProps {
   otp: string;
   type: "sign-in" | "email-verification" | "forget-password";
   appName?: string;
@@ -9,13 +10,13 @@ interface OTPEmailProps {
   expiresInMinutes?: number;
 }
 
-export function OTPEmail({
+export function OtpEmail({
   otp,
   type,
   appName,
   appUrl,
   expiresInMinutes = 5,
-}: OTPEmailProps) {
+}: IOTPEmailProps) {
   // [CONTENT_MAPPING] Maps type enum to user-facing labels and descriptions
   const typeLabels = {
     "sign-in": "Sign In",
@@ -68,14 +69,14 @@ export function OTPEmail({
 const heading = {
   fontSize: "24px",
   fontWeight: "600",
-  color: colors.text,
+  color: baseTemplateColors.text,
   margin: "0 0 24px",
 };
 
 const paragraph = {
   fontSize: "16px",
   lineHeight: "24px",
-  color: colors.textMuted,
+  color: baseTemplateColors.textMuted,
   margin: "0 0 16px",
 };
 
@@ -92,7 +93,7 @@ const otpText = {
   fontSize: "36px",
   fontWeight: "bold",
   letterSpacing: "0.5em",
-  color: colors.primary,
+  color: baseTemplateColors.primary,
   fontFamily: "Monaco, Consolas, monospace",
   margin: "0",
   textAlign: "center" as const,
@@ -104,7 +105,7 @@ const securityNote = {
   color: "#6c757d",
   margin: "24px 0 0",
   padding: "16px",
-  backgroundColor: colors.warning,
+  backgroundColor: baseTemplateColors.warning,
   borderRadius: "4px",
-  border: `1px solid ${colors.warningBorder}`,
+  border: `1px solid ${baseTemplateColors.warningBorder}`,
 };

@@ -1,8 +1,8 @@
-import { OTPEmail } from "../templates/otp-email";
+import { OtpEmail } from "../templates/otp-email";
 
-export default function OTPSignInPreview() {
+export function OtpSignIn() {
   return (
-    <OTPEmail
+    <OtpEmail
       otp="123456"
       type="sign-in"
       appName="React Starter Kit"

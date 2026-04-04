@@ -11,13 +11,17 @@
 import { Hono } from "hono";
 import { getCookie } from "hono/cookie";
 
-interface Env {
+interface IEnv {
   ASSETS: Fetcher;
   APP_SERVICE: Fetcher;
   API_SERVICE: Fetcher;
 }
 
-const app = new Hono<{ Bindings: Env }>();
+type WebWorkerContext = {
+  Bindings: IEnv;
+};
+
+const app = new Hono<WebWorkerContext>();
 
 // API proxy
 app.all("/api/*", (c) => c.env.API_SERVICE.fetch(c.req.raw));

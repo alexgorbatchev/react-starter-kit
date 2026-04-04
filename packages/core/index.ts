@@ -1,7 +1,1 @@
-/**
- * @file Core package entrypoint.
- *
- * Placeholder for shared utilities and WebSocket functionality.
- */
-
-export default {};
+export { CORE_PACKAGE_PLACEHOLDER } from "./placeholder";

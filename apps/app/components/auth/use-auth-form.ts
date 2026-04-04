@@ -1,4 +1,4 @@
-import { auth } from "@/lib/auth";
+import { auth } from "../../lib/auth";
 import type { FormEvent } from "react";
 import { useCallback, useRef, useState } from "react";
 
@@ -14,7 +14,7 @@ const VALID_TRANSITIONS: Record<AuthStep, AuthStep[]> = {
   otp: ["email"],
 };
 
-interface UseAuthFormOptions {
+interface IUseAuthFormOptions {
   /**
    * Called after successful authentication. Caller is responsible for
    * cache invalidation and navigation. Awaited before form state resets.
@@ -32,7 +32,7 @@ export function useAuthForm({
   onSuccess,
   isExternallyLoading,
   mode = "login",
-}: UseAuthFormOptions) {
+}: IUseAuthFormOptions) {
   const [step, setStep] = useState<AuthStep>("method");
   const [email, setEmail] = useState("");
   const [isLoading, setIsLoading] = useState(false);
@@ -63,8 +63,8 @@ export function useAuthForm({
     try {
       setIsLoading(true);
       await onSuccess();
-    } catch (err) {
-      console.error("Post-auth error:", err);
+    } catch (error) {
+      console.error("Post-auth error:", error);
       setError("Something went wrong. Please try again.");
       hasSucceededRef.current = false; // Allow retry on error
     } finally {
@@ -114,8 +114,8 @@ export function useAuthForm({
       } else if (result.error) {
         setError(result.error.message || "Failed to send OTP");
       }
-    } catch (err) {
-      console.error("Email OTP error:", err);
+    } catch (error) {
+      console.error("Email OTP error:", error);
       setError("Failed to send verification code");
     } finally {
       setIsLoading(false);

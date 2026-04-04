@@ -4,7 +4,7 @@ import { Button } from "@repo/ui";
 import { useQueryClient } from "@tanstack/react-query";
 import { useCallback, useState } from "react";
 
-interface GoogleLoginProps {
+interface IGoogleLoginProps {
   onError: (error: string | null) => void;
   isDisabled?: boolean;
   onLoadingChange?: (loading: boolean) => void;
@@ -17,7 +17,7 @@ export function GoogleLogin({
   isDisabled,
   onLoadingChange,
   returnTo,
-}: GoogleLoginProps) {
+}: IGoogleLoginProps) {
   const queryClient = useQueryClient();
   const [isLoading, setIsLoading] = useState(false);
 

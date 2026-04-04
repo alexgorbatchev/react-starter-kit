@@ -10,7 +10,7 @@
 
 import { Route as rootRouteImport } from './../routes/__root'
 import { Route as appRouteRouteImport } from './../routes/(app)/route'
-import { Route as appIndexRouteImport } from './../routes/(app)/index'
+import { Route as appPageRouteImport } from './../routes/(app)/page'
 import { Route as authSignupRouteImport } from './../routes/(auth)/signup'
 import { Route as authLoginRouteImport } from './../routes/(auth)/login'
 import { Route as appUsersRouteImport } from './../routes/(app)/users'
@@ -24,7 +24,7 @@ const appRouteRoute = appRouteRouteImport.update({
   id: '/(app)',
   getParentRoute: () => rootRouteImport,
 } as any)
-const appIndexRoute = appIndexRouteImport.update({
+const appPageRoute = appPageRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => appRouteRoute,
@@ -79,7 +79,7 @@ export interface FileRoutesByFullPath {
   '/users': typeof appUsersRoute
   '/login': typeof authLoginRoute
   '/signup': typeof authSignupRoute
-  '/': typeof appIndexRoute
+  '/': typeof appPageRoute
 }
 export interface FileRoutesByTo {
   '/about': typeof appAboutRoute
@@ -90,7 +90,7 @@ export interface FileRoutesByTo {
   '/users': typeof appUsersRoute
   '/login': typeof authLoginRoute
   '/signup': typeof authSignupRoute
-  '/': typeof appIndexRoute
+  '/': typeof appPageRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -103,7 +103,7 @@ export interface FileRoutesById {
   '/(app)/users': typeof appUsersRoute
   '/(auth)/login': typeof authLoginRoute
   '/(auth)/signup': typeof authSignupRoute
-  '/(app)/': typeof appIndexRoute
+  '/(app)/': typeof appPageRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -161,7 +161,7 @@ declare module '@tanstack/react-router' {
       id: '/(app)/'
       path: '/'
       fullPath: '/'
-      preLoaderRoute: typeof appIndexRouteImport
+      preLoaderRoute: typeof appPageRouteImport
       parentRoute: typeof appRouteRoute
     }
     '/(auth)/signup': {
@@ -230,7 +230,7 @@ interface appRouteRouteChildren {
   appReportsRoute: typeof appReportsRoute
   appSettingsRoute: typeof appSettingsRoute
   appUsersRoute: typeof appUsersRoute
-  appIndexRoute: typeof appIndexRoute
+  appPageRoute: typeof appPageRoute
 }
 
 const appRouteRouteChildren: appRouteRouteChildren = {
@@ -240,7 +240,7 @@ const appRouteRouteChildren: appRouteRouteChildren = {
   appReportsRoute: appReportsRoute,
   appSettingsRoute: appSettingsRoute,
   appUsersRoute: appUsersRoute,
-  appIndexRoute: appIndexRoute,
+  appPageRoute: appPageRoute,
 }
 
 const appRouteRouteWithChildren = appRouteRoute._addFileChildren(

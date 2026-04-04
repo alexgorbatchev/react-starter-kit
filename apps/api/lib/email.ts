@@ -1,6 +1,6 @@
 import {
   EmailVerification,
-  OTPEmail,
+  OtpEmail,
   PasswordReset,
   renderEmailToHtml,
   renderEmailToText,
@@ -9,7 +9,44 @@ import { Resend } from "resend";
 import { z } from "zod";
 import type { Env } from "./env";
 
-export interface EmailOptions {
+type ResendEmailEnv = Pick<Env, "RESEND_API_KEY" | "RESEND_EMAIL_FROM">;
+type AppEmailEnv = Pick<
+  Env,
+  "RESEND_API_KEY" | "RESEND_EMAIL_FROM" | "APP_NAME" | "APP_ORIGIN"
+>;
+type OtpEmailEnv = Pick<
+  Env,
+  | "ENVIRONMENT"
+  | "RESEND_API_KEY"
+  | "RESEND_EMAIL_FROM"
+  | "APP_NAME"
+  | "APP_ORIGIN"
+>;
+
+type OtpType = "sign-in" | "email-verification" | "forget-password";
+
+export interface IEmailUser {
+  email: string;
+  name?: string;
+}
+
+export interface IVerificationEmailOptions {
+  url: string;
+  user: IEmailUser;
+}
+
+export interface IPasswordResetEmailOptions {
+  url: string;
+  user: IEmailUser;
+}
+
+export interface IOtpEmailOptions {
+  email: string;
+  otp: string;
+  type: OtpType;
+}
+
+export interface IEmailOptions {
   to: string | string[];
   subject: string;
   html?: string;
@@ -30,10 +67,7 @@ export function createResendClient(apiKey: string): Resend {
  * @param env Environment variables containing Resend configuration
  * @param options Email configuration
  */
-export async function sendEmail(
-  env: Pick<Env, "RESEND_API_KEY" | "RESEND_EMAIL_FROM">,
-  options: EmailOptions,
-) {
+export async function sendEmail(env: ResendEmailEnv, options: IEmailOptions) {
   const emailSchema = z.email();
 
   // Validate all recipients before sending
@@ -92,14 +126,8 @@ export async function sendEmail(
  * @param options User and verification URL (should be time-limited, signed token)
  */
 export async function sendVerificationEmail(
-  env: Pick<
-    Env,
-    "RESEND_API_KEY" | "RESEND_EMAIL_FROM" | "APP_NAME" | "APP_ORIGIN"
-  >,
-  options: {
-    user: { email: string; name?: string };
-    url: string;
-  },
+  env: AppEmailEnv,
+  options: IVerificationEmailOptions,
 ) {
   const component = EmailVerification({
     userName: options.user.name,
@@ -126,14 +154,8 @@ export async function sendVerificationEmail(
  * @param options User and reset URL (must be single-use token with short expiration)
  */
 export async function sendPasswordReset(
-  env: Pick<
-    Env,
-    "RESEND_API_KEY" | "RESEND_EMAIL_FROM" | "APP_NAME" | "APP_ORIGIN"
-  >,
-  options: {
-    user: { email: string; name?: string };
-    url: string;
-  },
+  env: AppEmailEnv,
+  options: IPasswordResetEmailOptions,
 ) {
   const component = PasswordReset({
     userName: options.user.name,
@@ -159,26 +181,12 @@ export async function sendPasswordReset(
  * @param env Environment variables
  * @param options Email, OTP code (must be rate-limited, time-bound, single-use), and type
  */
-export async function sendOTP(
-  env: Pick<
-    Env,
-    | "ENVIRONMENT"
-    | "RESEND_API_KEY"
-    | "RESEND_EMAIL_FROM"
-    | "APP_NAME"
-    | "APP_ORIGIN"
-  >,
-  options: {
-    email: string;
-    otp: string;
-    type: "sign-in" | "email-verification" | "forget-password";
-  },
-) {
+export async function sendOTP(env: OtpEmailEnv, options: IOtpEmailOptions) {
   if (env.ENVIRONMENT === "development") {
     console.log(`OTP code for ${options.email}: ${options.otp}`);
   }
 
-  const component = OTPEmail({
+  const component = OtpEmail({
     otp: options.otp,
     type: options.type,
     appName: env.APP_NAME,

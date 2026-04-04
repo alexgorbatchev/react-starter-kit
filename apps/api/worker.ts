@@ -24,10 +24,12 @@ type CloudflareEnv = {
   HYPERDRIVE_DIRECT: Hyperdrive;
 } & Env;
 
-const worker = new Hono<{
+type WorkerContext = {
   Bindings: CloudflareEnv;
   Variables: AppContext["Variables"];
-}>();
+};
+
+const worker = new Hono<WorkerContext>();
 
 // Error and 404 handlers (must be on top-level app)
 worker.onError(errorHandler);

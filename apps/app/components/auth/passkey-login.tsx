@@ -4,7 +4,7 @@ import { Button } from "@repo/ui";
 import { KeyRound } from "lucide-react";
 import { useCallback, useEffect, useRef, useState } from "react";
 
-interface PasskeyLoginProps {
+interface IPasskeyLoginProps {
   onSuccess: () => void;
   onError: (error: string | null) => void;
   onLoadingChange?: (loading: boolean) => void;
@@ -22,7 +22,7 @@ export function PasskeyLogin({
   onError,
   onLoadingChange,
   isDisabled,
-}: PasskeyLoginProps) {
+}: IPasskeyLoginProps) {
   const [isLoading, setIsLoading] = useState(false);
 
   const setLoading = useCallback(

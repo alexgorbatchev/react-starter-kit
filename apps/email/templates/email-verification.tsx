@@ -1,7 +1,8 @@
 import { Button, Heading, Section, Text } from "@react-email/components";
-import { BaseTemplate, colors } from "../components/BaseTemplate";
+import { BaseTemplate } from "../components/BaseTemplate";
+import { baseTemplateColors } from "../components/constants";
 
-interface EmailVerificationProps {
+interface IEmailVerificationProps {
   userName?: string;
   verificationUrl: string;
   appName?: string;
@@ -13,7 +14,7 @@ export function EmailVerification({
   verificationUrl,
   appName,
   appUrl,
-}: EmailVerificationProps) {
+}: IEmailVerificationProps) {
   const preview = `Verify your email address for ${appName || "your account"}`;
 
   return (
@@ -54,14 +55,14 @@ export function EmailVerification({
 const heading = {
   fontSize: "24px",
   fontWeight: "600",
-  color: colors.text,
+  color: baseTemplateColors.text,
   margin: "0 0 24px",
 };
 
 const paragraph = {
   fontSize: "16px",
   lineHeight: "24px",
-  color: colors.textMuted,
+  color: baseTemplateColors.textMuted,
   margin: "0 0 16px",
 };
 
@@ -71,9 +72,9 @@ const buttonContainer = {
 };
 
 const button = {
-  backgroundColor: colors.primary,
+  backgroundColor: baseTemplateColors.primary,
   borderRadius: "6px",
-  color: colors.white,
+  color: baseTemplateColors.white,
   fontSize: "16px",
   fontWeight: "600",
   textDecoration: "none",
@@ -85,7 +86,7 @@ const button = {
 
 const linkText = {
   fontSize: "14px",
-  color: colors.textLight,
+  color: baseTemplateColors.textLight,
   wordBreak: "break-all" as const,
   margin: "0 0 16px",
   padding: "12px",

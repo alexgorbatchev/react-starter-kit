@@ -1,15 +1,19 @@
 import { Button } from "@repo/ui";
 import { Menu, Settings, X } from "lucide-react";
 
-interface HeaderProps {
+interface IHeaderProps {
   isSidebarOpen: boolean;
   onMenuToggle: () => void;
 }
 
-export function Header({ isSidebarOpen, onMenuToggle }: HeaderProps) {
+export function Header({ isSidebarOpen, onMenuToggle }: IHeaderProps) {
   return (
-    <header className="h-14 border-b bg-background flex items-center px-4 gap-4">
+    <header
+      className="h-14 border-b bg-background flex items-center px-4 gap-4"
+      data-testid="Header"
+    >
       <Button
+        aria-label={isSidebarOpen ? "Collapse sidebar" : "Expand sidebar"}
         variant="ghost"
         size="icon"
         onClick={onMenuToggle}
@@ -27,7 +31,11 @@ export function Header({ isSidebarOpen, onMenuToggle }: HeaderProps) {
       </div>
 
       <div className="flex items-center gap-2">
-        <Button variant="ghost" size="icon">
+        <Button
+          aria-label="Open application settings"
+          variant="ghost"
+          size="icon"
+        >
           <Settings className="h-5 w-5" />
         </Button>
       </div>

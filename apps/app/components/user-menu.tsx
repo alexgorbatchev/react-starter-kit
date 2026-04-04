@@ -10,7 +10,7 @@ export function UserMenu() {
 
   if (isPending) {
     return (
-      <div className="flex items-center gap-2 px-3 py-2">
+      <div className="flex items-center gap-2 px-3 py-2" data-testid="UserMenu">
         <div className="h-8 w-8 rounded-full bg-muted animate-pulse" />
         <div className="flex-1">
           <div className="h-4 w-20 bg-muted rounded animate-pulse" />
@@ -21,7 +21,10 @@ export function UserMenu() {
 
   if (error) {
     return (
-      <div className="px-3 py-2 text-sm text-destructive">
+      <div
+        className="px-3 py-2 text-sm text-destructive"
+        data-testid="UserMenu"
+      >
         Failed to load session
         <Button
           variant="ghost"
@@ -43,7 +46,7 @@ export function UserMenu() {
   }
 
   return (
-    <div className="p-4 border-t">
+    <div className="p-4 border-t" data-testid="UserMenu">
       <div className="flex items-center gap-3 px-3 py-2">
         <Avatar className="h-8 w-8">
           <AvatarFallback>
@@ -55,6 +58,7 @@ export function UserMenu() {
           <p className="text-xs text-muted-foreground truncate">{user.email}</p>
         </div>
         <Button
+          aria-label="Sign out"
           variant="ghost"
           size="icon"
           onClick={() => signOut(queryClient)}

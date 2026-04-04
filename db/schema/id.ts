@@ -20,8 +20,10 @@ const AUTH_PREFIX = {
 
 export type AuthModel = keyof typeof AUTH_PREFIX;
 
+type CreateIdFunction = () => string;
+
 const ID_LENGTH = 16;
-let _createId: (() => string) | null = null;
+let _createId: CreateIdFunction | null = null;
 
 function createId(): string {
   if (!_createId) _createId = init({ length: ID_LENGTH });

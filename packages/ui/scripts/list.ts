@@ -3,13 +3,13 @@ import { existsSync } from "node:fs";
 import { readdir, stat } from "node:fs/promises";
 import { basename, join } from "node:path";
 
-interface ComponentInfo {
+interface IComponentInfo {
   name: string;
   size: number;
   modified: Date;
 }
 
-async function getComponentInfo(filePath: string): Promise<ComponentInfo> {
+async function getComponentInfo(filePath: string): Promise<IComponentInfo> {
   const stats = await stat(filePath);
   const name = basename(filePath, ".tsx");
 
@@ -44,7 +44,7 @@ async function listComponents(): Promise<void> {
 
     console.log("📦 Installed Components:\n");
 
-    const components: ComponentInfo[] = [];
+    const components: IComponentInfo[] = [];
 
     for (const file of tsxFiles) {
       const filePath = join(componentsDir, file);

@@ -5,7 +5,7 @@
  * TanStack Query handles caching, refresh, and consistency automatically.
  */
 
-import { getErrorStatus } from "@/lib/errors";
+import { getErrorStatus } from "../errors";
 import type { QueryClient } from "@tanstack/react-query";
 import {
   queryOptions,
@@ -14,8 +14,16 @@ import {
 } from "@tanstack/react-query";
 import { auth, type Session, type User } from "../auth";
 
+export interface IRouterInvalidator {
+  invalidate: () => Promise<void>;
+}
+
+export interface ISignOutOptions {
+  redirect?: boolean;
+}
+
 // Both user and session must be present for valid auth state
-export interface SessionData {
+export interface ISessionData {
   user: User;
   session: Session;
 }
@@ -26,7 +34,7 @@ export const sessionQueryKey = ["auth", "session"] as const;
 // Only overrides staleTime and retry — inherits gcTime, refetchOnWindowFocus,
 // refetchOnReconnect, and retryDelay from QueryClient defaults.
 export function sessionQueryOptions() {
-  return queryOptions<SessionData | null>({
+  return queryOptions<ISessionData | null>({
     queryKey: sessionQueryKey,
     queryFn: async () => {
       const response = await auth.getSession();
@@ -56,7 +64,7 @@ export function useSuspenseSessionQuery() {
 
 export function getCachedSession(
   queryClient: QueryClient,
-): SessionData | null | undefined {
+): ISessionData | null | undefined {
   return queryClient.getQueryData(sessionQueryKey);
 }
 
@@ -75,7 +83,7 @@ export function isAuthenticated(queryClient: QueryClient): boolean {
 // for a clean slate between user sessions.
 export async function signOut(
   queryClient: QueryClient,
-  options?: { redirect?: boolean },
+  options?: ISignOutOptions,
 ) {
   try {
     await auth.signOut();
@@ -94,7 +102,7 @@ export async function signOut(
  */
 export async function revalidateSession(
   queryClient: QueryClient,
-  router: { invalidate: () => Promise<void> },
+  router: IRouterInvalidator,
 ) {
   queryClient.removeQueries({ queryKey: sessionQueryKey });
   await router.invalidate();

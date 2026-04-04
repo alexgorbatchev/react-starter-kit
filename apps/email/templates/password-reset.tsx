@@ -1,7 +1,8 @@
 import { Button, Heading, Section, Text } from "@react-email/components";
-import { BaseTemplate, colors } from "../components/BaseTemplate";
+import { BaseTemplate } from "../components/BaseTemplate";
+import { baseTemplateColors } from "../components/constants";
 
-interface PasswordResetProps {
+interface IPasswordResetProps {
   userName?: string;
   resetUrl: string;
   appName?: string;
@@ -13,7 +14,7 @@ export function PasswordReset({
   resetUrl,
   appName,
   appUrl,
-}: PasswordResetProps) {
+}: IPasswordResetProps) {
   const preview = `Reset your password for ${appName || "your account"}`;
 
   return (
@@ -61,14 +62,14 @@ export function PasswordReset({
 const heading = {
   fontSize: "24px",
   fontWeight: "600",
-  color: colors.text,
+  color: baseTemplateColors.text,
   margin: "0 0 24px",
 };
 
 const paragraph = {
   fontSize: "16px",
   lineHeight: "24px",
-  color: colors.textMuted,
+  color: baseTemplateColors.textMuted,
   margin: "0 0 16px",
 };
 
@@ -79,9 +80,9 @@ const buttonContainer = {
 
 // Uses danger color (red) to emphasize the security-sensitive nature of password resets
 const button = {
-  backgroundColor: colors.danger,
+  backgroundColor: baseTemplateColors.danger,
   borderRadius: "6px",
-  color: colors.white,
+  color: baseTemplateColors.white,
   fontSize: "16px",
   fontWeight: "600",
   textDecoration: "none",
@@ -93,7 +94,7 @@ const button = {
 
 const linkText = {
   fontSize: "14px",
-  color: colors.textLight,
+  color: baseTemplateColors.textLight,
   wordBreak: "break-all" as const,
   margin: "0 0 16px",
   padding: "12px",
@@ -108,7 +109,7 @@ const securityNote = {
   color: "#6c757d",
   margin: "24px 0 0",
   padding: "16px",
-  backgroundColor: colors.warning,
+  backgroundColor: baseTemplateColors.warning,
   borderRadius: "4px",
-  border: `1px solid ${colors.warningBorder}`,
+  border: `1px solid ${baseTemplateColors.warningBorder}`,
 };

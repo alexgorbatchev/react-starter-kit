@@ -9,19 +9,17 @@ import {
 } from "@repo/ui";
 import { useQueryClient } from "@tanstack/react-query";
 import { useRouter, useRouterState } from "@tanstack/react-router";
-import { useState } from "react";
 import { AuthForm } from "./auth-form";
 
-interface LoginDialogProps {
+interface ILoginDialogProps {
   open: boolean;
   onOpenChange: (open: boolean) => void;
 }
 
 /**
  * Login dialog component for modal authentication.
- * Use with useLoginDialog hook for programmatic control.
  */
-export function LoginDialog({ open, onOpenChange }: LoginDialogProps) {
+export function LoginDialog({ open, onOpenChange }: ILoginDialogProps) {
   const router = useRouter();
   const queryClient = useQueryClient();
 
@@ -51,35 +49,4 @@ export function LoginDialog({ open, onOpenChange }: LoginDialogProps) {
       </DialogContent>
     </Dialog>
   );
-}
-
-/**
- * Hook for programmatically controlling the login dialog.
- *
- * @example
- * ```tsx
- * function App() {
- *   const loginDialog = useLoginDialog();
- *
- *   return (
- *     <>
- *       <button onClick={loginDialog.open}>Sign In</button>
- *       <LoginDialog {...loginDialog.props} />
- *     </>
- *   );
- * }
- * ```
- */
-export function useLoginDialog() {
-  const [isOpen, setIsOpen] = useState(false);
-
-  return {
-    isOpen,
-    open: () => setIsOpen(true),
-    close: () => setIsOpen(false),
-    props: {
-      open: isOpen,
-      onOpenChange: setIsOpen,
-    },
-  };
 }

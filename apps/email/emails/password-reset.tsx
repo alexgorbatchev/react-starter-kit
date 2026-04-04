@@ -1,8 +1,8 @@
-import { PasswordReset } from "../templates/password-reset";
+import { PasswordReset as PasswordResetTemplate } from "../templates/password-reset";
 
-export default function PasswordResetPreview() {
+export function PasswordReset() {
   return (
-    <PasswordReset
+    <PasswordResetTemplate
       userName="John Doe"
       resetUrl="https://example.com/reset?token=xyz789"
       appName="React Starter Kit"

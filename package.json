@@ -15,19 +15,23 @@
   ],
   "scripts": {
     "dev": "bun --filter @repo/web --filter @repo/api --filter @repo/app dev",
-    "format": "oxfmt",
-    "format:check": "oxfmt --check",
-    "lint": "oxlint -c oxlintrc.json --deny-warnings --report-unused-disable-directives",
+    "format": "bun --bun oxfmt .",
+    "format:check": "bun --bun oxfmt --check .",
+    "lint": "bun --bun oxfmt . && bun --bun oxlint --deny-warnings --report-unused-disable-directives .",
+    "lint:check": "bun --bun oxfmt --check . && bun --bun oxlint --deny-warnings --report-unused-disable-directives .",
     "test": "vitest",
     "typecheck": "tsgo --build",
     "build:types": "tsgo --build",
     "build": "bun --filter @repo/email --filter @repo/web --filter @repo/api --filter @repo/app build",
-    "generate:types": "bun wrangler types --config apps/api/wrangler.jsonc --include-runtime=false apps/api/types/cloudflare-env.d.ts && oxfmt apps/api/types/*-env.d.ts",
+    "generate:types": "bun wrangler types --config apps/api/wrangler.jsonc --include-runtime=false apps/api/types/cloudflare-env.d.ts && bun --bun oxfmt apps/api/types/*-env.d.ts",
     "prepare": "husky",
     "docs:dev": "vitepress dev docs",
     "docs:build": "vitepress build docs",
     "docs:preview": "vitepress preview docs",
     "docs:deploy": "gh-pages --dist docs/.vitepress/dist",
+    "storybook": "storybook dev --ci --port 6006",
+    "storybook:build": "storybook build",
+    "test:storybook": "vitest run --config ./vitest.storybook.config.ts",
     "app:dev": "bun --cwd apps/app dev",
     "app:build": "bun --cwd apps/app build",
     "app:test": "bun --cwd apps/app test",
@@ -86,7 +90,13 @@
     "infra:prod:edge:destroy": "terraform -chdir=infra/envs/prod/edge destroy"
   },
   "devDependencies": {
+    "@alexgorbatchev/typescript-ai-policy": "^1.0.3",
     "@emotion/babel-plugin": "^11.13.5",
+    "@happy-dom/global-registrator": "^20.8.9",
+    "@storybook/addon-vitest": "^10.3.4",
+    "@storybook/react-vite": "^10.3.4",
+    "@typescript/native-preview": "^7.0.0-dev.20260330.1",
+    "@vitest/browser-playwright": "4.0.18",
     "@ws-kit/zod": "^0.10.2",
     "gh-pages": "^6.3.0",
     "graphql": "^16.12.0",
@@ -95,26 +105,30 @@
     "lint-staged": "^16.2.7",
     "mermaid": "^11.12.3",
     "npm-check": "^6.0.1",
+    "oxfmt": "^0.42.0",
+    "oxlint": "^1.57.0",
+    "playwright": "^1.53.1",
     "react": "^19.2.4",
+    "react-dom": "^19.2.4",
     "relay-config": "^12.0.1",
     "srcpack": "^0.1.15",
-    "@typescript/native-preview": "7.0.0-dev.20260326.1",
+    "storybook": "^10.3.4",
     "typescript": "~5.9.3",
     "typescript-language-server": "^5.1.3",
     "vite": "~7.3.1",
+    "vite-tsconfig-paths": "^6.1.1",
     "vitepress": "2.0.0-alpha.16",
     "vitepress-plugin-llms": "^1.11.0",
-    "vitest": "~4.0.18",
-    "wrangler": "^4.66.0",
-    "oxfmt": "^0.41.0",
-    "oxlint": "^1.56.0"
+    "vitest": "4.0.18",
+    "wrangler": "^4.66.0"
   },
   "lint-staged": {
     "*.{js,jsx,ts,tsx,mjs,cjs}": [
-      "bun lint"
+      "bun --bun oxfmt --no-error-on-unmatched-pattern",
+      "bun --bun oxlint --deny-warnings --report-unused-disable-directives"
     ],
-    "*": [
-      "oxfmt --check --no-error-on-unmatched-pattern"
+    "*.json": [
+      "bun --bun oxfmt --no-error-on-unmatched-pattern"
     ]
   }
 }

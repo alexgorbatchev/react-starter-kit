@@ -1,8 +1,8 @@
-import { EmailVerification } from "../templates/email-verification";
+import { EmailVerification as EmailVerificationTemplate } from "../templates/email-verification";
 
-export default function EmailVerificationPreview() {
+export function EmailVerification() {
   return (
-    <EmailVerification
+    <EmailVerificationTemplate
       userName="John Doe"
       verificationUrl="https://example.com/verify?token=abc123"
       appName="React Starter Kit"

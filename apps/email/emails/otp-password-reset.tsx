@@ -1,8 +1,8 @@
-import { OTPEmail } from "../templates/otp-email";
+import { OtpEmail } from "../templates/otp-email";
 
-export default function OTPPasswordResetPreview() {
+export function OtpPasswordReset() {
   return (
-    <OTPEmail
+    <OtpEmail
       otp="456789"
       type="forget-password"
       appName="React Starter Kit"

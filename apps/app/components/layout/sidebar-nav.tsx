@@ -2,19 +2,19 @@ import type { FileRoutesByTo } from "@/lib/routeTree.gen";
 import { Link } from "@tanstack/react-router";
 import type { LucideIcon } from "lucide-react";
 
-interface SidebarNavItem {
+interface ISidebarNavItem {
   icon: LucideIcon;
   label: string;
   to: keyof FileRoutesByTo;
 }
 
-interface SidebarNavProps {
-  items: readonly SidebarNavItem[];
+interface ISidebarNavProps {
+  items: readonly ISidebarNavItem[];
 }
 
-export function SidebarNav({ items }: SidebarNavProps) {
+export function SidebarNav({ items }: ISidebarNavProps) {
   return (
-    <nav className="flex-1 p-4 space-y-1">
+    <nav className="flex-1 p-4 space-y-1" data-testid="SidebarNav">
       {items.map((item) => (
         <Link
           key={item.to}

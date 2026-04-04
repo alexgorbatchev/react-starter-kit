@@ -1,8 +1,8 @@
-import { OTPEmail } from "../templates/otp-email";
+import { OtpEmail } from "../templates/otp-email";
 
-export default function OTPVerificationPreview() {
+export function OtpVerification() {
   return (
-    <OTPEmail
+    <OtpEmail
       otp="789012"
       type="email-verification"
       appName="React Starter Kit"

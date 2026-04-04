@@ -3,6 +3,12 @@ import type { BetterAuthOptions } from "better-auth/types";
 import { createAuth } from "../../apps/api/lib/auth";
 import { env } from "../../apps/api/lib/env";
 
+interface IAuthWithOptions {
+  options: BetterAuthOptions;
+}
+
+type AuthWithOptions = ReturnType<typeof createAuth> & IAuthWithOptions;
+
 /**
  * Generates the complete database structure from Better Auth configuration
  * Outputs the schema as formatted JSON showing all tables, fields, and relationships
@@ -20,8 +26,8 @@ async function generateAuthSchema() {
     GOOGLE_CLIENT_SECRET: env.GOOGLE_CLIENT_SECRET || "mock-client-secret",
   });
 
-  // WARNING: Type assertion needed as Better Auth doesn't export the auth instance type
-  const authOptions = (auth as { options: BetterAuthOptions }).options;
+  const authWithOptions: AuthWithOptions = auth;
+  const authOptions = authWithOptions.options;
 
   // Get the complete database schema
   const tables = getAuthTables(authOptions);

@@ -15,6 +15,12 @@ import { inArray } from "drizzle-orm";
 import { user } from "@repo/db/schema/user.js";
 import type { TRPCContext } from "./context";
 
+type LoaderBatchFn<K, V> = (
+  ctx: TRPCContext,
+  keys: readonly K[],
+) => Promise<(V | null)[]>;
+type LoaderFactory<K, V> = (ctx: TRPCContext) => DataLoader<K, V | null>;
+
 /** Map fetched items by key, preserving input order (nulls for missing). */
 function mapByKey<T, K extends keyof T>(
   items: T[],
@@ -28,8 +34,8 @@ function mapByKey<T, K extends keyof T>(
 /** Create a request-scoped DataLoader (one instance per request via ctx.cache). */
 function defineLoader<K, V>(
   key: symbol,
-  batchFn: (ctx: TRPCContext, keys: readonly K[]) => Promise<(V | null)[]>,
-): (ctx: TRPCContext) => DataLoader<K, V | null> {
+  batchFn: LoaderBatchFn<K, V>,
+): LoaderFactory<K, V> {
   return (ctx) => {
     let loader = ctx.cache.get(key) as DataLoader<K, V | null> | undefined;
     if (!loader) {

@@ -12,7 +12,7 @@ const OTP_ERROR_CODES = {
   INVALID_OTP: "INVALID_OTP",
 } as const;
 
-interface OtpVerificationProps {
+interface IOtpVerificationProps {
   email: string;
   onSuccess: () => void;
   onError: (error: string | null) => void;
@@ -28,7 +28,7 @@ export function OtpVerification({
   onLoadingChange,
   onCancel,
   isDisabled,
-}: OtpVerificationProps) {
+}: IOtpVerificationProps) {
   const [otp, setOtp] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const [resendCooldown, setResendCooldown] = useState(0);
@@ -116,7 +116,11 @@ export function OtpVerification({
   const disabled = isDisabled || isLoading;
 
   return (
-    <form onSubmit={handleOtpVerification} className="flex flex-col gap-3">
+    <form
+      className="flex flex-col gap-3"
+      data-testid="OtpVerification"
+      onSubmit={handleOtpVerification}
+    >
       <Input
         type="text"
         placeholder="Enter 6-digit code"

@@ -63,6 +63,7 @@ export default defineProject(({ mode }) => {
         routesDirectory: "./routes",
         generatedRouteTree: "./lib/routeTree.gen.ts",
         routeFileIgnorePrefix: "-",
+        indexToken: "page",
         quoteStyle: "single",
         semicolons: false,
         autoCodeSplitting: true,

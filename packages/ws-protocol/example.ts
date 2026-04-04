@@ -42,18 +42,18 @@ const server = Bun.serve({
 
     return new Response(
       `
-WebSocket Server Example
+        WebSocket Server Example
 
-Connect to ws://localhost:3000/ws
+        Connect to ws://localhost:3000/ws
 
-Try sending:
-- {"type": "PING", "meta": {}, "payload": {}}
-- {"type": "ECHO", "meta": {}, "payload": {"text": "Hello"}}
-- {"type": "GET_USER", "meta": {"correlationId": "1"}, "payload": {"id": "123"}}
+        Try sending:
+        - {"type": "PING", "meta": {}, "payload": {}}
+        - {"type": "ECHO", "meta": {}, "payload": {"text": "Hello"}}
+        - {"type": "GET_USER", "meta": {"correlationId": "1"}, "payload": {"id": "123"}}
 
-Broadcast to all clients:
-- curl -X POST http://localhost:3000/broadcast
-    `,
+        Broadcast to all clients:
+        - curl -X POST http://localhost:3000/broadcast
+      `,
       {
         headers: { "content-type": "text/plain" },
       },

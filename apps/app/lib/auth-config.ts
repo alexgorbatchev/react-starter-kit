@@ -1,5 +1,7 @@
 // All durations in milliseconds. Providers must match server-side config.
 // Changing api.basePath requires updating server routing.
+type SessionExpiry = Date | string | undefined;
+
 export const authConfig = {
   oauth: {
     providers: ["google"] as const,
@@ -60,9 +62,7 @@ export function getSafeRedirectUrl(url: unknown): string {
 
 // Refresh when expiry is within threshold to prevent mid-operation failures.
 // Returns false for already-expired sessions.
-export function shouldRefreshSession(
-  expiresAt: Date | string | undefined,
-): boolean {
+export function shouldRefreshSession(expiresAt: SessionExpiry): boolean {
   if (!expiresAt) return false;
 
   const expiryTime =
