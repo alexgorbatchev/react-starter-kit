@@ -150,9 +150,9 @@ console.log(`⏳ Creating user ${email}...`);
 try {
   const result = await auth.api.signUpEmail({
     body: {
-      email,
-      password,
-      name,
+      email: email as string,
+      password: password as string,
+      name: name as string,
     },
   });
   console.log("✅ User created successfully!");
