@@ -1,4 +1,3 @@
-/* oxlint-disable @alexgorbatchev/hook-file-contract, @alexgorbatchev/hook-test-file-convention */
 import { act, renderHook } from "@testing-library/react";
 import { describe, expect, it } from "vitest";
 import { useAuthForm } from "../use-auth-form";

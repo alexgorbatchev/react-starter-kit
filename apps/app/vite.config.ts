@@ -2,7 +2,7 @@ import { tanstackRouter } from "@tanstack/router-plugin/vite";
 import react from "@vitejs/plugin-react-swc";
 import { TLSSocket } from "node:tls";
 import { URL, fileURLToPath } from "node:url";
-import { loadEnv } from "vite";
+import { loadEnv, type PluginOption } from "vite";
 import tsconfigPaths from "vite-tsconfig-paths";
 import { defineProject } from "vitest/config";
 
@@ -67,8 +67,7 @@ export default defineProject(({ mode }) => {
         quoteStyle: "single",
         semicolons: false,
         autoCodeSplitting: true,
-        // eslint-disable-next-line @typescript-eslint/no-explicit-any
-      }) as any,
+      }) as PluginOption,
       // https://github.com/vitejs/vite-plugin-react/tree/main/packages/plugin-react-swc
       react(),
     ],
