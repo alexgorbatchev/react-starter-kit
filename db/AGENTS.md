@@ -23,6 +23,9 @@
 ## Seeds
 
 - Use `onConflictDoNothing()` for idempotent seeds (safe to rerun).
+- `db:seed` inserts fixture rows directly with Drizzle. Seeded `user` records are for multi-user/data scenarios, not developer login accounts.
+- Seeded users do **not** go through Better Auth signup, so do not assume they have password credentials or other auth-side records.
+- Use `bun create:user` when you need a real login-capable local user.
 
 ## Environment
 

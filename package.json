@@ -15,7 +15,7 @@
   ],
   "scripts": {
     "dev": "bun --filter @repo/web --filter @repo/api --filter @repo/app dev",
-    "create:user": "bun scripts/create-user.ts",
+    "create:user": "bun --cwd scripts create:user",
     "format": "bun --bun oxfmt .",
     "format:check": "bun --bun oxfmt --check .",
     "lint": "bun --bun oxfmt . && bun --bun oxlint --deny-warnings --report-unused-disable-directives .",
