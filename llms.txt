@@ -13,6 +13,11 @@ Skip months of setup and ship your AI-powered SaaS fast. Authentication, databas
 - [Project Structure](/react-starter-kit/getting-started/project-structure.md)
 - [Environment Variables](/react-starter-kit/getting-started/environment-variables.md)
 
+### Fork
+
+- [AI Agent Development Flow](/react-starter-kit/fork/agent-development.md)
+- [Local Database with PGLite](/react-starter-kit/fork/local-database-pglite.md)
+
 ### Architecture
 
 - [Architecture Overview](/react-starter-kit/architecture.md)
@@ -83,7 +88,6 @@ Skip months of setup and ship your AI-powered SaaS fast. Authentication, databas
 
 - [ADR-001 Auth Hint Cookie For Edge Routing](/react-starter-kit/adr/001-auth-hint-cookie.md)
 - [ADR-NNN Title](/react-starter-kit/adr/000-template.md)
-- [AI Agent Development Flow](/react-starter-kit/fork/agent-development.md)
 - [Auth Flow UX Specification](/react-starter-kit/specs/auth-form.md)
 - [Email](/react-starter-kit/email.md)
 - [Infrastructure Terraform Specification](/react-starter-kit/specs/infra-terraform.md)
