@@ -1,6 +1,25 @@
 import { defineConfig } from "vitepress";
 import llmstxt from "vitepress-plugin-llms";
 
+const defaultRepository = "alexgorbatchev/react-starter-kit";
+const repository = process.env.GITHUB_REPOSITORY ?? defaultRepository;
+const docsBase = process.env.DOCS_BASE ?? "/";
+const docsSiteUrl = process.env.DOCS_SITE_URL ?? "https://reactstarter.com/";
+const cleanUrls = process.env.DOCS_CLEAN_URLS !== "false";
+
+const normalizeBase = (base: string) => {
+  if (base === "/") {
+    return "/";
+  }
+
+  return `/${base.replace(/^\/+|\/+$/g, "")}/`;
+};
+
+const base = normalizeBase(docsBase);
+const siteUrl = docsSiteUrl.endsWith("/") ? docsSiteUrl : `${docsSiteUrl}/`;
+const repoUrl = `https://github.com/${repository}`;
+const withBase = (path: string) => `${base}${path.replace(/^\//, "")}`;
+
 /**
  * VitePress configuration.
  * @see https://vitepress.dev/reference/site-config
@@ -8,6 +27,7 @@ import llmstxt from "vitepress-plugin-llms";
 export default defineConfig({
   title: "React Starter Kit",
   description: "Production-ready monorepo for building fast web apps",
+  base,
 
   markdown: {
     config(md) {
@@ -24,12 +44,12 @@ export default defineConfig({
   },
 
   lastUpdated: true,
-  cleanUrls: true,
+  cleanUrls,
   metaChunk: true,
   ignoreDeadLinks: [/%5B.*_URL%5D/],
 
   sitemap: {
-    hostname: "https://reactstarter.com",
+    hostname: siteUrl,
     transformItems: (items) => {
       items.push({ url: "llms.txt" }, { url: "llms-full.txt" });
       return items;
@@ -45,7 +65,7 @@ export default defineConfig({
       {
         rel: "alternate",
         type: "text/plain",
-        href: "/llms.txt",
+        href: withBase("llms.txt"),
         title: "LLM context",
       },
     ],
@@ -54,7 +74,7 @@ export default defineConfig({
       {
         rel: "alternate",
         type: "text/plain",
-        href: "/llms-full.txt",
+        href: withBase("llms-full.txt"),
         title: "LLM context (full)",
       },
     ],
@@ -72,14 +92,12 @@ export default defineConfig({
     },
 
     editLink: {
-      pattern:
-        "https://github.com/kriasoft/react-starter-kit/edit/main/docs/:path",
+      pattern: `${repoUrl}/edit/main/docs/:path`,
       text: "Edit this page on GitHub",
     },
 
     footer: {
-      message:
-        'LLM context: <a href="/llms.txt">llms.txt</a> · <a href="/llms-full.txt">llms-full.txt</a><br>Released under the MIT License.',
+      message: `LLM context: <a href="${withBase("llms.txt")}">llms.txt</a> · <a href="${withBase("llms-full.txt")}">llms-full.txt</a><br>Released under the MIT License.`,
       copyright: "Copyright © 2014-present Kriasoft",
     },
 
@@ -215,7 +233,7 @@ export default defineConfig({
       },
       {
         icon: "github",
-        link: "https://github.com/kriasoft/react-starter-kit",
+        link: repoUrl,
       },
     ],
   },
