@@ -5,6 +5,7 @@ import { authenticatedSession } from "../../../stories/AppStoryDecorator";
 import { Layout } from "../Layout";
 
 const meta: Meta<typeof Layout> = {
+  title: "@repo/app/components/layout/Layout",
   component: Layout,
   parameters: {
     appStory: {

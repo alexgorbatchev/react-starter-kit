@@ -3,6 +3,7 @@ import { expect, within } from "storybook/test";
 import { Avatar, AvatarFallback } from "../avatar";
 
 const meta: Meta<typeof Avatar> = {
+  title: "@repo/ui/components/avatar",
   component: Avatar,
   parameters: {
     layout: "centered",

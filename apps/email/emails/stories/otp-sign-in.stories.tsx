@@ -3,6 +3,7 @@ import { expect } from "storybook/test";
 import { OtpSignIn } from "../otp-sign-in";
 
 const meta: Meta<typeof OtpSignIn> = {
+  title: "@repo/email/emails/otp-sign-in",
   component: OtpSignIn,
   tags: ["skip-test"],
   parameters: {

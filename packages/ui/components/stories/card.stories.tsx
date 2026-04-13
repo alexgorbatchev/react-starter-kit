@@ -11,6 +11,7 @@ import {
 } from "../card";
 
 const meta: Meta<typeof Card> = {
+  title: "@repo/ui/components/card",
   component: Card,
   render: () => {
     return (

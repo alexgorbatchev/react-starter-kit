@@ -25,6 +25,7 @@ function CheckboxHarness() {
 }
 
 const meta: Meta<typeof Checkbox> = {
+  title: "@repo/ui/components/checkbox",
   component: Checkbox,
   parameters: {
     layout: "centered",

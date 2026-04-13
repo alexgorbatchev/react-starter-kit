@@ -4,6 +4,7 @@ import { Label } from "../label";
 import { RadioGroup, RadioGroupItem } from "../radio-group";
 
 const meta: Meta<typeof RadioGroup> = {
+  title: "@repo/ui/components/radio-group",
   component: RadioGroup,
   parameters: {
     layout: "centered",

@@ -3,6 +3,7 @@ import { expect, within } from "storybook/test";
 import { Skeleton } from "../skeleton";
 
 const meta: Meta<typeof Skeleton> = {
+  title: "@repo/ui/components/skeleton",
   component: Skeleton,
   parameters: {
     layout: "centered",

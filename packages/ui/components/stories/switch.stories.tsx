@@ -23,6 +23,7 @@ function SwitchHarness() {
 }
 
 const meta: Meta<typeof Switch> = {
+  title: "@repo/ui/components/switch",
   component: Switch,
   parameters: {
     layout: "centered",

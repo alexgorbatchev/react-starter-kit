@@ -3,6 +3,7 @@ import { expect } from "storybook/test";
 import { EmailVerification } from "../email-verification";
 
 const meta: Meta<typeof EmailVerification> = {
+  title: "@repo/email/emails/email-verification",
   component: EmailVerification,
   tags: ["skip-test"],
   parameters: {

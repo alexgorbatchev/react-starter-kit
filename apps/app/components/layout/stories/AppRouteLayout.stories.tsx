@@ -4,6 +4,7 @@ import { expect, within } from "storybook/test";
 import { AppRouteLayout } from "../AppRouteLayout";
 
 const meta: Meta<typeof AppRouteLayout> = {
+  title: "@repo/app/components/layout/AppRouteLayout",
   component: AppRouteLayout,
   tags: ["skip-test"],
   parameters: {

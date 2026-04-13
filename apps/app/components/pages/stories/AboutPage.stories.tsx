@@ -32,6 +32,7 @@ function AboutPageHarness() {
 }
 
 const meta: Meta<typeof AboutPage> = {
+  title: "@repo/app/components/pages/AboutPage",
   component: AboutPage,
   parameters: {
     layout: "fullscreen",

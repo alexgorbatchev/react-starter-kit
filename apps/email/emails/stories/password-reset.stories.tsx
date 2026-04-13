@@ -3,6 +3,7 @@ import { expect } from "storybook/test";
 import { PasswordReset } from "../password-reset";
 
 const meta: Meta<typeof PasswordReset> = {
+  title: "@repo/email/emails/password-reset",
   component: PasswordReset,
   tags: ["skip-test"],
   parameters: {

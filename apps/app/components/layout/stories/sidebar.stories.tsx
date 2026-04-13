@@ -5,6 +5,7 @@ import { authenticatedSession } from "../../../stories/AppStoryDecorator";
 import { Sidebar } from "../sidebar";
 
 const meta: Meta<typeof Sidebar> = {
+  title: "@repo/app/components/layout/sidebar",
   component: Sidebar,
   args: {
     isOpen: true,

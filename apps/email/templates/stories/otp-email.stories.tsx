@@ -3,6 +3,7 @@ import { expect } from "storybook/test";
 import { OtpEmail } from "../otp-email";
 
 const meta: Meta<typeof OtpEmail> = {
+  title: "@repo/email/templates/otp-email",
   component: OtpEmail,
   args: {
     appName: "React Starter Kit",

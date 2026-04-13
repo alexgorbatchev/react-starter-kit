@@ -121,7 +121,10 @@ export default defineConfig({
         text: "Fork",
         items: [
           { text: "Agent Development", link: "/fork/agent-development" },
-          { text: "Local Database (PGlite)", link: "/fork/local-database-pglite" },
+          {
+            text: "Local Database (PGlite)",
+            link: "/fork/local-database-pglite",
+          },
         ],
       },
       {

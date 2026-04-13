@@ -8,6 +8,7 @@ const items = Array.from(
 );
 
 const meta: Meta<typeof ScrollArea> = {
+  title: "@repo/ui/components/scroll-area",
   component: ScrollArea,
   parameters: {
     layout: "centered",

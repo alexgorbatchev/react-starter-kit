@@ -36,6 +36,7 @@ function UserMenuHarness() {
 }
 
 const meta: Meta<typeof UserMenu> = {
+  title: "@repo/app/components/user-menu",
   component: UserMenu,
   parameters: {
     appStory: {

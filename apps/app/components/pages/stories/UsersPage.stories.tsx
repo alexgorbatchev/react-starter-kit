@@ -44,6 +44,7 @@ function UsersPageHarness() {
 }
 
 const meta: Meta<typeof UsersPage> = {
+  title: "@repo/app/components/pages/UsersPage",
   component: UsersPage,
   parameters: {
     layout: "fullscreen",

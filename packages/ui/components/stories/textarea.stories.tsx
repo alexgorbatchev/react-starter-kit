@@ -22,6 +22,7 @@ function TextareaHarness() {
 }
 
 const meta: Meta<typeof Textarea> = {
+  title: "@repo/ui/components/textarea",
   component: Textarea,
   parameters: {
     layout: "centered",

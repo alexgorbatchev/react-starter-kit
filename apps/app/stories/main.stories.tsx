@@ -4,6 +4,7 @@ import { expect, within } from "storybook/test";
 import { Main } from "../main";
 
 const meta: Meta<typeof Main> = {
+  title: "@repo/app/main",
   component: Main,
   tags: ["skip-test"],
   parameters: {

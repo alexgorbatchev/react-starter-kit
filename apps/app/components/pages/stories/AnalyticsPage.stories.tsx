@@ -3,6 +3,7 @@ import { expect, within } from "storybook/test";
 import { AnalyticsPage } from "../AnalyticsPage";
 
 const meta: Meta<typeof AnalyticsPage> = {
+  title: "@repo/app/components/pages/AnalyticsPage",
   component: AnalyticsPage,
   parameters: {
     layout: "fullscreen",

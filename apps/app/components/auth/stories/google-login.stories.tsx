@@ -4,6 +4,7 @@ import { expect, within } from "storybook/test";
 import { GoogleLogin } from "../google-login";
 
 const meta: Meta<typeof GoogleLogin> = {
+  title: "@repo/app/components/auth/google-login",
   component: GoogleLogin,
   tags: ["skip-test"],
   args: {

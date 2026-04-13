@@ -23,6 +23,7 @@ function InputHarness() {
 }
 
 const meta: Meta<typeof Input> = {
+  title: "@repo/ui/components/input",
   component: Input,
   parameters: {
     layout: "centered",

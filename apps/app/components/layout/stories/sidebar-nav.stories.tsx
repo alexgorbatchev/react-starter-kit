@@ -34,6 +34,7 @@ function SidebarNavHarness() {
 }
 
 const meta: Meta<typeof SidebarNav> = {
+  title: "@repo/app/components/layout/sidebar-nav",
   component: SidebarNav,
   parameters: {
     appStory: {

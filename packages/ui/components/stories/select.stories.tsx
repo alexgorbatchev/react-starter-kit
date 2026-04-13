@@ -9,6 +9,7 @@ import {
 } from "../select";
 
 const meta: Meta<typeof Select> = {
+  title: "@repo/ui/components/select",
   component: Select,
   parameters: {
     layout: "centered",

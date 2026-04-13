@@ -3,6 +3,7 @@ import { expect, within } from "storybook/test";
 import { Separator } from "../separator";
 
 const meta: Meta<typeof Separator> = {
+  title: "@repo/ui/components/separator",
   component: Separator,
   parameters: {
     layout: "centered",

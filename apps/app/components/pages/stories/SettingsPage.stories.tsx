@@ -8,6 +8,7 @@ import {
 import { SettingsPage } from "../SettingsPage";
 
 const meta: Meta<typeof SettingsPage> = {
+  title: "@repo/app/components/pages/SettingsPage",
   component: SettingsPage,
   parameters: {
     appStory: {

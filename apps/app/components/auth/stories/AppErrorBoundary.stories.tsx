@@ -7,6 +7,7 @@ function ThrowStoryError(): never {
 }
 
 const meta: Meta<typeof AppErrorBoundary> = {
+  title: "@repo/app/components/auth/AppErrorBoundary",
   component: AppErrorBoundary,
   parameters: {
     appStory: {},

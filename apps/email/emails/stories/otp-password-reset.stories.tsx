@@ -3,6 +3,7 @@ import { expect } from "storybook/test";
 import { OtpPasswordReset } from "../otp-password-reset";
 
 const meta: Meta<typeof OtpPasswordReset> = {
+  title: "@repo/email/emails/otp-password-reset",
   component: OtpPasswordReset,
   tags: ["skip-test"],
   parameters: {

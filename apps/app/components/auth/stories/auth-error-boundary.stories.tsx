@@ -7,6 +7,7 @@ function ThrowUnauthorizedError(): never {
 }
 
 const meta: Meta<typeof AuthErrorBoundary> = {
+  title: "@repo/app/components/auth/auth-error-boundary",
   component: AuthErrorBoundary,
   parameters: {
     appStory: {},

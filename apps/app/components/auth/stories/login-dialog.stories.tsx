@@ -3,6 +3,7 @@ import { expect, within } from "storybook/test";
 import { LoginDialog } from "../login-dialog";
 
 const meta: Meta<typeof LoginDialog> = {
+  title: "@repo/app/components/auth/login-dialog",
   component: LoginDialog,
   args: {
     onOpenChange: () => undefined,

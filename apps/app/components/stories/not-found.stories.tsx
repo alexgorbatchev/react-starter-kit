@@ -32,6 +32,7 @@ function NotFoundHarness() {
 }
 
 const meta: Meta<typeof NotFound> = {
+  title: "@repo/app/components/not-found",
   component: NotFound,
   parameters: {
     appStory: {

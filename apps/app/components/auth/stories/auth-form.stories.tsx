@@ -5,6 +5,7 @@ import { AuthForm } from "../auth-form";
 async function handleSuccess(): Promise<void> {}
 
 const meta: Meta<typeof AuthForm> = {
+  title: "@repo/app/components/auth/auth-form",
   component: AuthForm,
   args: {
     mode: "login",

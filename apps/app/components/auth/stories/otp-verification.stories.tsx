@@ -3,6 +3,7 @@ import { expect, userEvent, within } from "storybook/test";
 import { OtpVerification } from "../otp-verification";
 
 const meta: Meta<typeof OtpVerification> = {
+  title: "@repo/app/components/auth/otp-verification",
   component: OtpVerification,
   args: {
     email: "alex@example.com",

@@ -37,6 +37,7 @@ function PasskeyLoginHarness() {
 }
 
 const meta: Meta<typeof PasskeyLogin> = {
+  title: "@repo/app/components/auth/passkey-login",
   component: PasskeyLogin,
   parameters: {
     appStory: {

@@ -3,6 +3,7 @@ import { expect } from "storybook/test";
 import { PasswordReset } from "../password-reset";
 
 const meta: Meta<typeof PasswordReset> = {
+  title: "@repo/email/templates/password-reset",
   component: PasswordReset,
   args: {
     appName: "React Starter Kit",

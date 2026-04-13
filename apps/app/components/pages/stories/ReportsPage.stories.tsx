@@ -4,6 +4,7 @@ import { expect, userEvent, within } from "storybook/test";
 import { ReportsPage } from "../ReportsPage";
 
 const meta: Meta<typeof ReportsPage> = {
+  title: "@repo/app/components/pages/ReportsPage",
   component: ReportsPage,
   parameters: {
     layout: "fullscreen",

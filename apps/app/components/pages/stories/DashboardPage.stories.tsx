@@ -31,6 +31,7 @@ function DashboardPageHarness() {
 }
 
 const meta: Meta<typeof DashboardPage> = {
+  title: "@repo/app/components/pages/DashboardPage",
   component: DashboardPage,
   parameters: {
     layout: "fullscreen",

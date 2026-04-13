@@ -4,6 +4,7 @@ import { expect, within } from "storybook/test";
 import { RootRoute } from "../RootRoute";
 
 const meta: Meta<typeof RootRoute> = {
+  title: "@repo/app/components/RootRoute",
   component: RootRoute,
   tags: ["skip-test"],
   parameters: {

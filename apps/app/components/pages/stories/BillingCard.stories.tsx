@@ -61,6 +61,7 @@ function BillingCardHarness() {
 }
 
 const meta: Meta<typeof BillingCard> = {
+  title: "@repo/app/components/pages/BillingCard",
   component: BillingCard,
   parameters: {
     appStory: {

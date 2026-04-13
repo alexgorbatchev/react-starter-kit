@@ -11,6 +11,7 @@ import {
 } from "../dialog";
 
 const meta: Meta<typeof Dialog> = {
+  title: "@repo/ui/components/dialog",
   component: Dialog,
   parameters: {
     layout: "centered",

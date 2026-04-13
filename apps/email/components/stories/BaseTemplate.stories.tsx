@@ -5,6 +5,7 @@ import { Heading, Text } from "@react-email/components";
 import { BaseTemplate } from "../BaseTemplate";
 
 const meta: Meta<typeof BaseTemplate> = {
+  title: "@repo/email/components/BaseTemplate",
   component: BaseTemplate,
   tags: ["skip-test"],
   parameters: {

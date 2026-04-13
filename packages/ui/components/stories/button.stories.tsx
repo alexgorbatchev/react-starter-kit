@@ -17,6 +17,7 @@ function ButtonHarness() {
 }
 
 const meta: Meta<typeof Button> = {
+  title: "@repo/ui/components/button",
   component: Button,
   parameters: {
     layout: "centered",

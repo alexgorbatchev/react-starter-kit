@@ -19,6 +19,7 @@ function HeaderHarness() {
 }
 
 const meta: Meta<typeof Header> = {
+  title: "@repo/app/components/layout/header",
   component: Header,
   parameters: {
     layout: "fullscreen",

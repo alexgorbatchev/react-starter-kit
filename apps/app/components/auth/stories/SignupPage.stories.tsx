@@ -4,6 +4,7 @@ import { expect, userEvent, within } from "storybook/test";
 import { SignupPage } from "../SignupPage";
 
 const meta: Meta<typeof SignupPage> = {
+  title: "@repo/app/components/auth/SignupPage",
   component: SignupPage,
   args: {
     returnTo: "/settings",

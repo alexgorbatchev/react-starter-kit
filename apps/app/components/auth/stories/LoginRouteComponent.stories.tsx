@@ -4,6 +4,7 @@ import { expect, userEvent, within } from "storybook/test";
 import { LoginRouteComponent } from "../LoginRouteComponent";
 
 const meta: Meta<typeof LoginRouteComponent> = {
+  title: "@repo/app/components/auth/LoginRouteComponent",
   component: LoginRouteComponent,
   parameters: {
     appStory: {

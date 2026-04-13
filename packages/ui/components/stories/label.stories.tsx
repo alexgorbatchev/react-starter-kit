@@ -4,6 +4,7 @@ import { Input } from "../input";
 import { Label } from "../label";
 
 const meta: Meta<typeof Label> = {
+  title: "@repo/ui/components/label",
   component: Label,
   parameters: {
     layout: "centered",
