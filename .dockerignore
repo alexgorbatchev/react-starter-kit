@@ -1,0 +1,15 @@
+node_modules
+apps/*/node_modules
+packages/*/node_modules
+db/node_modules
+scripts/node_modules
+.git
+.bun
+.cache
+.tmp
+dist
+build
+.astro
+.next
+.svelte-kit
+.vercel

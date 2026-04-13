@@ -1,0 +1,20 @@
+services:
+  agent-dev:
+    build:
+      context: .
+      dockerfile: Dockerfile.agent
+    ports:
+      - "${PROXY_PORT:-8080}:${PROXY_PORT:-8080}"
+    environment:
+      - TIMEOUT_MS=30000
+      - PROXY_PORT=${PROXY_PORT:-8080}
+    # Mount volumes to allow live editing
+    # We map specific src directories instead of the root to avoid overriding native binaries
+    # that were compiled for linux inside the image with host OS ones
+    volumes:
+      - ./apps/app/src:/app/apps/app/src
+      - ./apps/web/src:/app/apps/web/src
+      - ./apps/web/pages:/app/apps/web/pages
+      - ./apps/api/src:/app/apps/api/src
+      - ./packages/ui/src:/app/packages/ui/src
+      - ./db/schema:/app/db/schema
