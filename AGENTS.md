@@ -59,3 +59,4 @@ The following checks must pass before committing or opening a PR:
 - Prefer explicit, readable code over clever or compressed patterns.
 - Use precise TypeScript types. Avoid `any` and unnecessary type assertions — let the compiler enforce correctness.
 - Document non-obvious trade-offs and decisions. Explain why, not what — every word must add value.
+- Tests must never, under any circumstances, output anything to the console except the error that has to be fixed. Nothing else can ever be in the console, only errors.
