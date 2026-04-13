@@ -3635,6 +3635,7 @@ In this project, the local database is stored in the `.tmp/pglite` directory at 
 ### Configuration
 
 1. **Environment Variables**: The `.env` file configures the `DATABASE_URL` to point to the local `.tmp/pglite` directory instead of a standard `postgres://` connection string.
+
    ```env
    DATABASE_URL=.tmp/pglite
    ```
@@ -3665,6 +3666,7 @@ You can interact with the local PGLite database using the standard `db` package 
 ## Troubleshooting
 
 * **Resetting the Database**: If you need to completely wipe your local database, you can simply delete the `.tmp/pglite` directory and re-run the push and seed commands.
+
   ```bash
   rm -rf .tmp/pglite
   bun db:push
