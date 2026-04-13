@@ -70,11 +70,18 @@ app.use(async (c, next) => {
   ) {
     if (!sharedPgLiteDb) {
       // Resolve relative to the apps/api folder -> project root is ../..
-      const dbPath = resolve(import.meta.dirname, "../../", process.env.DATABASE_URL);
+      const dbPath = resolve(
+        import.meta.dirname,
+        "../../",
+        process.env.DATABASE_URL,
+      );
       fs.mkdirSync(dbPath, { recursive: true });
-      
+
       const client = new PGlite(dbPath);
-      sharedPgLiteDb = drizzlePgLite(client, { schema, casing: "snake_case" }) as unknown as PostgresJsDatabase<typeof schema>;
+      sharedPgLiteDb = drizzlePgLite(client, {
+        schema,
+        casing: "snake_case",
+      }) as unknown as PostgresJsDatabase<typeof schema>;
     }
     db = sharedPgLiteDb;
     dbDirect = sharedPgLiteDb;

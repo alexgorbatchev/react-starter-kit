@@ -5,6 +5,7 @@ This fork of React Starter Kit includes a specialized development environment de
 ## The Problem
 
 When multiple agents or parallel processes try to run `bun dev` to verify their code changes:
+
 1. They often collide on default static ports (e.g., `5173`, `8787`).
 2. If left running indefinitely, these preview servers waste system resources and create orphaned processes.
 3. Agents often don't know how to gracefully tear down the development environment after verification.
@@ -28,7 +29,8 @@ AGENT=1 bun dev
 ```
 
 When an agent sets `AGENT=1`:
-- **Dynamic Port Allocation:** The script dynamically finds 4 random, available open ports on the host system to run the API, App, and Web workers. 
+
+- **Dynamic Port Allocation:** The script dynamically finds 4 random, available open ports on the host system to run the API, App, and Web workers.
 - **Reverse Proxy:** It spins up a single entry-point reverse proxy (also on a random open port) that maps everything together exactly as Cloudflare Workers would.
 - **Inactivity Timeout:** It tracks HTTP traffic hitting the proxy. If 30 seconds pass without any new network requests, the proxy cleanly shuts down all child processes and exits with `code 0`.
 
@@ -40,9 +42,10 @@ This makes it extremely safe for agents to spawn preview servers and verify thei
 AGENT=1 AGENT_RUNTIME=docker bun dev
 ```
 
-Sometimes agents need complete filesystem isolation or they might accidentally kill a background process they shouldn't. 
+Sometimes agents need complete filesystem isolation or they might accidentally kill a background process they shouldn't.
 
 By setting `AGENT_RUNTIME=docker` alongside `AGENT=1`:
+
 - A fully isolated `node:22-bookworm` Docker container is spun up.
 - The `node_modules` from your host macOS/Windows machine are explicitly excluded to ensure the Linux container downloads the correct native binaries for tools like `esbuild` and `workerd`.
 - Code changes in `src/` directories are mapped live, so the agent can still make code modifications and instantly see the results in the Dockerized preview server.
