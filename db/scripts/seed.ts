@@ -21,11 +21,16 @@ let client: DbClient;
 
 if (isPgLite) {
   const dbUrl = resolve(__dirname, "../..", process.env.DATABASE_URL!);
-  client = new PGlite(dbUrl);
-  db = drizzlePgLite(client, { schema, casing: "snake_case" });
+  const pgliteClient = new PGlite(dbUrl);
+  client = pgliteClient;
+  db = drizzlePgLite(pgliteClient, {
+    schema,
+    casing: "snake_case",
+  }) as unknown as Parameters<typeof seedUsers>[0];
 } else {
-  client = postgres(process.env.DATABASE_URL!, { max: 1 });
-  db = drizzle(client, { schema, casing: "snake_case" });
+  const pgClient = postgres(process.env.DATABASE_URL!, { max: 1 });
+  client = pgClient;
+  db = drizzle(pgClient, { schema, casing: "snake_case" });
 }
 
 console.log("🌱 Starting database seeding...");
@@ -39,8 +44,8 @@ try {
   process.exitCode = 1;
 } finally {
   if (isPgLite) {
-    await client.close();
+    await client.close?.();
   } else {
-    await client.end();
+    await client.end?.();
   }
 }

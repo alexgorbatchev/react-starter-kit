@@ -1,13 +1,42 @@
+import path from "node:path";
+import { fileURLToPath } from "node:url";
+
+import { playwright } from "@vitest/browser-playwright";
+import { storybookTest } from "@storybook/addon-vitest/vitest-plugin";
 import { defineConfig } from "vitest/config";
 
-/**
- * Vitest configuration.
- *
- * @see https://vitest.dev/config/
- */
+const dirname =
+  typeof __dirname !== "undefined"
+    ? __dirname
+    : path.dirname(fileURLToPath(import.meta.url));
+
 export default defineConfig({
   cacheDir: "./.cache/vite",
   test: {
-    projects: ["apps/api", "apps/app"],
+    projects: [
+      "apps/api",
+      "apps/app",
+      {
+        test: {
+          name: "storybook",
+          browser: {
+            enabled: true,
+            headless: true,
+            instances: [{ browser: "chromium" }],
+            provider: playwright({}),
+          },
+        },
+        plugins: [
+          storybookTest({
+            configDir: path.join(dirname, ".storybook"),
+            storybookScript: "bun run storybook",
+            storybookUrl: "http://127.0.0.1:6006",
+            tags: {
+              skip: ["skip-test"],
+            },
+          }),
+        ],
+      },
+    ],
   },
 });

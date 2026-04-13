@@ -3,7 +3,6 @@ import react from "@vitejs/plugin-react-swc";
 import { TLSSocket } from "node:tls";
 import { URL, fileURLToPath } from "node:url";
 import { loadEnv, type PluginOption } from "vite";
-import tsconfigPaths from "vite-tsconfig-paths";
 import { defineProject } from "vitest/config";
 
 const publicEnvVars = [
@@ -51,6 +50,7 @@ export default defineProject(({ mode }) => {
 
     resolve: {
       conditions: ["module", "browser", "development|production"],
+      tsconfigPaths: true,
     },
 
     css: {
@@ -58,7 +58,6 @@ export default defineProject(({ mode }) => {
     },
 
     plugins: [
-      tsconfigPaths(),
       tanstackRouter({
         routesDirectory: "./routes",
         generatedRouteTree: "./lib/routeTree.gen.ts",
