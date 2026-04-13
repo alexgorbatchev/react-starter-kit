@@ -1,0 +1,92 @@
+# React Starter Kit
+
+> Production-ready monorepo for building fast web apps
+
+Skip months of setup and ship your AI-powered SaaS fast. Authentication, database migrations, edge deployment, and cutting-edge React patterns all configured with industry best practices.
+
+## Table of Contents
+
+### Getting Started
+
+- [Introduction](/react-starter-kit/getting-started.md)
+- [Quick Start](/react-starter-kit/getting-started/quick-start.md)
+- [Project Structure](/react-starter-kit/getting-started/project-structure.md)
+- [Environment Variables](/react-starter-kit/getting-started/environment-variables.md)
+
+### Architecture
+
+- [Architecture Overview](/react-starter-kit/architecture.md)
+- [Edge](/react-starter-kit/architecture/edge.md)
+
+### Frontend
+
+- [Routing](/react-starter-kit/frontend/routing.md)
+- [State & Data Fetching](/react-starter-kit/frontend/state.md)
+- [UI](/react-starter-kit/frontend/ui.md)
+- [Forms & Validation](/react-starter-kit/frontend/forms.md)
+
+### API
+
+- [API Overview](/react-starter-kit/api.md)
+- [Procedures](/react-starter-kit/api/procedures.md)
+- [Validation & Errors](/react-starter-kit/api/validation-errors.md)
+- [Context & Middleware](/react-starter-kit/api/context.md)
+
+### Authentication
+
+- [Authentication Overview](/react-starter-kit/auth.md)
+- [Email & OTP](/react-starter-kit/auth/email-otp.md)
+- [Social Providers](/react-starter-kit/auth/social-providers.md)
+- [Passkeys](/react-starter-kit/auth/passkeys.md)
+- [Organizations & Roles](/react-starter-kit/auth/organizations.md)
+- [Sessions & Protected Routes](/react-starter-kit/auth/sessions.md)
+
+### Database
+
+- [Database](/react-starter-kit/database.md)
+- [Schema](/react-starter-kit/database/schema.md)
+- [Migrations](/react-starter-kit/database/migrations.md)
+- [Seeding](/react-starter-kit/database/seeding.md)
+- [Query Patterns](/react-starter-kit/database/queries.md)
+
+### Billing
+
+- [Billing](/react-starter-kit/billing.md)
+- [Plans & Pricing](/react-starter-kit/billing/plans.md)
+- [Checkout Flow](/react-starter-kit/billing/checkout.md)
+- [Webhooks](/react-starter-kit/billing/webhooks.md)
+
+### Deployment
+
+- [Deployment](/react-starter-kit/deployment.md)
+- [Cloudflare Workers](/react-starter-kit/deployment/cloudflare.md)
+- [Production Database](/react-starter-kit/deployment/production-database.md)
+- [CI/CD](/react-starter-kit/deployment/ci-cd.md)
+- [Monitoring](/react-starter-kit/deployment/monitoring.md)
+
+### Recipes
+
+- [Add a Page](/react-starter-kit/recipes/new-page.md)
+- [Add a tRPC Procedure](/react-starter-kit/recipes/new-procedure.md)
+- [Add a Database Table](/react-starter-kit/recipes/new-table.md)
+- [Add Teams](/react-starter-kit/recipes/teams.md)
+- [WebSockets](/react-starter-kit/recipes/websockets.md)
+- [File Uploads](/react-starter-kit/recipes/file-uploads.md)
+
+### Security
+
+- [Security Best Practices Checklist](/react-starter-kit/security/checklist.md)
+- [Security Incident Response Playbook](/react-starter-kit/security/incident-playbook.md)
+- [Security Policy & Incident Response Plan](/react-starter-kit/security/policy-template.md)
+
+### Other
+
+- [ADR-001 Auth Hint Cookie For Edge Routing](/react-starter-kit/adr/001-auth-hint-cookie.md)
+- [ADR-NNN Title](/react-starter-kit/adr/000-template.md)
+- [AI Agent Development Flow](/react-starter-kit/fork/agent-development.md)
+- [Auth Flow UX Specification](/react-starter-kit/specs/auth-form.md)
+- [Email](/react-starter-kit/email.md)
+- [Infrastructure Terraform Specification](/react-starter-kit/specs/infra-terraform.md)
+- [Prefixed CUID2 Database IDs](/react-starter-kit/specs/prefixed-ids.md)
+- [Stripe Billing Integration](/react-starter-kit/specs/billing.md)
+- [Testing](/react-starter-kit/testing.md)
