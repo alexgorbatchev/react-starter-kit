@@ -117,6 +117,7 @@ export default defineConfig({
           },
         ],
       },
+      { text: "Fork", link: "/fork/agent-development" },
       {
         text: "Architecture",
         items: [
