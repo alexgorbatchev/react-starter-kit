@@ -34,6 +34,14 @@ bun ui:add <component>         # Add shadcn/ui component to packages/ui
 # Database: bun db:{push,generate,migrate,studio,seed} (append :staging or :prod)
 ```
 
+## Checks
+
+The following checks must pass before committing or opening a PR:
+
+- `bun typecheck` — TypeScript compilation
+- `bun lint` — Oxlint static analysis
+- `bun test --run` — Vitest test suite
+
 ## Architecture
 
 - Three workers: web (edge router), app (SPA assets), api (Hono server).
