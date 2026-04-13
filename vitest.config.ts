@@ -25,6 +25,28 @@ export default defineConfig({
             instances: [{ browser: "chromium" }],
             provider: playwright({}),
           },
+          setupFiles: ["./apps/app/vitest.setup.ts"],
+        },
+        onConsoleLog(log, type) {
+          if (type === "stderr") {
+            const s = String(log);
+            if (
+              s.includes("The above error occurred in the") ||
+              s.includes("React will try to recreate this component tree") ||
+              s.includes(
+                "Uncaught error: [Error: Storybook boundary test error.]",
+              ) ||
+              s.includes("Error caught by boundary:") ||
+              s.includes("ThrowUnauthorizedError") ||
+              s.includes("Unauthorized") ||
+              s.includes("ThrowStoryError") ||
+              s.includes("statusText") ||
+              s.includes("401") ||
+              s.includes("[Error: Storybook boundary test error.]")
+            ) {
+              return false;
+            }
+          }
         },
         plugins: [
           storybookTest({

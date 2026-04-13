@@ -12,7 +12,7 @@ import { queryClient } from "./query";
 const links: TRPCLink<AppRouter>[] = [];
 
 // Add logger link in development for debugging
-if (import.meta.env.DEV) {
+if (import.meta.env.DEV && !import.meta.env.TEST) {
   links.push(
     loggerLink({
       enabled: (opts) =>
