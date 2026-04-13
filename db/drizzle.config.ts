@@ -1,6 +1,7 @@
 import { configDotenv } from "dotenv";
 import { defineConfig } from "drizzle-kit";
 import { resolve } from "node:path";
+import * as fs from "node:fs";
 
 // Environment detection: ENVIRONMENT var takes priority, then NODE_ENV mapping
 const envName = (() => {
@@ -20,9 +21,14 @@ if (!process.env.DATABASE_URL) {
   throw new Error("DATABASE_URL environment variable is required");
 }
 
-// Validate DATABASE_URL format (accepts both postgres:// and postgresql://)
-if (!/^postgre(s|sql):\/\/.+/.test(process.env.DATABASE_URL)) {
-  throw new Error("DATABASE_URL must be a valid PostgreSQL connection string");
+// Validate DATABASE_URL format
+const isPgLite = !/^postgre(s|sql):\/\/.+/.test(process.env.DATABASE_URL);
+
+let dbUrl = process.env.DATABASE_URL;
+if (isPgLite) {
+  // Resolve relative to project root
+  dbUrl = resolve(__dirname, "..", dbUrl);
+  fs.mkdirSync(dbUrl, { recursive: true });
 }
 
 /**
@@ -35,8 +41,9 @@ export default defineConfig({
   out: "./migrations",
   schema: "./schema",
   dialect: "postgresql",
+  ...(isPgLite ? { driver: "pglite" } : {}),
   casing: "snake_case",
   dbCredentials: {
-    url: process.env.DATABASE_URL,
+    url: dbUrl,
   },
 });

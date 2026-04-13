@@ -21,6 +21,7 @@
     "@ai-sdk/openai": "^3.0.29",
     "@better-auth/passkey": "^1.4.18",
     "@better-auth/stripe": "^1.4.18",
+    "@electric-sql/pglite": "^0.4.4",
     "@repo/core": "workspace:*",
     "@repo/db": "workspace:*",
     "@repo/email": "workspace:*",

@@ -4,8 +4,13 @@
  * Requires wrangler.jsonc with HYPERDRIVE_CACHED and HYPERDRIVE_DIRECT bindings.
  */
 
+import { PGlite } from "@electric-sql/pglite";
+import { schema } from "@repo/db";
+import { drizzle as drizzlePgLite } from "drizzle-orm/pglite";
 import { Hono } from "hono";
 import { logger } from "hono/logger";
+import { resolve } from "node:path";
+import * as fs from "node:fs";
 import { requestId } from "hono/request-id";
 import { secureHeaders } from "hono/secure-headers";
 import { parseArgs } from "node:util";
@@ -47,12 +52,34 @@ const cf = await getPlatformProxy<CloudflareEnv>({
   persist: true,
 });
 
+// Cache PGLite instance to avoid recreating it on every request
+let sharedPgLiteDb: any = null;
+
 // Inject context with two database connections:
 // - db: Hyperdrive caching for read-heavy queries
 // - dbDirect: No cache for writes and transactions
 app.use(async (c, next) => {
-  const db = createDb(cf.env.HYPERDRIVE_CACHED);
-  const dbDirect = createDb(cf.env.HYPERDRIVE_DIRECT);
+  let db: any;
+  let dbDirect: any;
+
+  if (
+    process.env.DATABASE_URL &&
+    !/^postgre(s|sql):\/\/.+/.test(process.env.DATABASE_URL)
+  ) {
+    if (!sharedPgLiteDb) {
+      // Resolve relative to the apps/api folder -> project root is ../..
+      const dbPath = resolve(import.meta.dirname, "../../", process.env.DATABASE_URL);
+      fs.mkdirSync(dbPath, { recursive: true });
+      
+      const client = new PGlite(dbPath);
+      sharedPgLiteDb = drizzlePgLite(client, { schema, casing: "snake_case" });
+    }
+    db = sharedPgLiteDb;
+    dbDirect = sharedPgLiteDb;
+  } else {
+    db = createDb(cf.env.HYPERDRIVE_CACHED);
+    dbDirect = createDb(cf.env.HYPERDRIVE_DIRECT);
+  }
 
   // Merge secrets from process.env (local dev) with Cloudflare bindings
   const secretKeys = [
