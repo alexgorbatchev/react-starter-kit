@@ -14,8 +14,10 @@ import "../drizzle.config";
 
 const isPgLite = !/^postgre(s|sql):\/\/.+/.test(process.env.DATABASE_URL!);
 
-let db: any;
-let client: any;
+type DbClient = { close?: () => Promise<void>; end?: () => Promise<void> };
+
+let db: Parameters<typeof seedUsers>[0];
+let client: DbClient;
 
 if (isPgLite) {
   const dbUrl = resolve(__dirname, "../..", process.env.DATABASE_URL!);

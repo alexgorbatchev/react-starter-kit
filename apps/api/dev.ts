@@ -52,15 +52,17 @@ const cf = await getPlatformProxy<CloudflareEnv>({
   persist: true,
 });
 
+import type { PostgresJsDatabase } from "drizzle-orm/postgres-js";
+
 // Cache PGLite instance to avoid recreating it on every request
-let sharedPgLiteDb: any = null;
+let sharedPgLiteDb: PostgresJsDatabase<typeof schema> | null = null;
 
 // Inject context with two database connections:
 // - db: Hyperdrive caching for read-heavy queries
 // - dbDirect: No cache for writes and transactions
 app.use(async (c, next) => {
-  let db: any;
-  let dbDirect: any;
+  let db: PostgresJsDatabase<typeof schema>;
+  let dbDirect: PostgresJsDatabase<typeof schema>;
 
   if (
     process.env.DATABASE_URL &&
@@ -72,7 +74,7 @@ app.use(async (c, next) => {
       fs.mkdirSync(dbPath, { recursive: true });
       
       const client = new PGlite(dbPath);
-      sharedPgLiteDb = drizzlePgLite(client, { schema, casing: "snake_case" });
+      sharedPgLiteDb = drizzlePgLite(client, { schema, casing: "snake_case" }) as unknown as PostgresJsDatabase<typeof schema>;
     }
     db = sharedPgLiteDb;
     dbDirect = sharedPgLiteDb;
