@@ -277,3 +277,11 @@ apps/
 ```
 
 Place test files next to the source they test. No separate `__tests__` directories.
+
+## Console Output
+
+Tests must **never** output anything to the console (`console.log`, `console.warn`, `console.error`) except for the actual error that has to be fixed. Nothing else can ever be in the console, only errors.
+
+If a test intentionally triggers an error (e.g., testing an Error Boundary), you should suppress the expected console output by spying on the console method (`vi.spyOn(console, "error").mockImplementation(() => {})`) within your test. The project's testing setup files also proactively suppress known expected React boundary errors.
+
+Keeping the test suite output clean ensures that real failures are easy to spot and diagnose.
