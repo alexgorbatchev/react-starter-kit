@@ -120,3 +120,12 @@ bun build        # Production build: email → web → api → app
 ::: info
 After modifying tRPC routes, types update automatically – no manual sync needed. After editing `db/schema/`, run `bun db:generate` then `bun db:push` to apply changes.
 :::
+
+## Pre-Commit Checks
+
+This project enforces strict quality standards via Husky pre-commit hooks. Before any commit is allowed, the following checks are run locally to ensure no failing code is pushed:
+
+* `bun typecheck` - Validates TypeScript types across the monorepo.
+* `bun test --run` - Runs the unified Vitest test suite.
+
+If either of these fail, the commit will be rejected. Always make sure to resolve type errors and failing tests before committing your work.
