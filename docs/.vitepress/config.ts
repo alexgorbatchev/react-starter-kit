@@ -28,6 +28,7 @@ export default defineConfig({
   title: "React Starter Kit",
   description: "Production-ready monorepo for building fast web apps",
   base,
+  srcExclude: ["**/AGENTS.md"],
 
   markdown: {
     config(md) {
@@ -125,6 +126,7 @@ export default defineConfig({
             text: "Local Database (PGlite)",
             link: "/fork/local-database-pglite",
           },
+          { text: "Upstream Sync", link: "/fork/upstream-sync" },
         ],
       },
       {
