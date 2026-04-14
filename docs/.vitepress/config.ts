@@ -127,6 +127,7 @@ export default defineConfig({
             link: "/fork/local-database-pglite",
           },
           { text: "Upstream Sync", link: "/fork/upstream-sync" },
+          { text: "Pre-Commit Checks", link: "/fork/pre-commit-checks" },
         ],
       },
       {
