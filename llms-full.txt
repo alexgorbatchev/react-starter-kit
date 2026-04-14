@@ -4258,6 +4258,20 @@ When no active subscription exists, it defaults to the `free` plan limits. Enfor
 ---
 
 ---
+url: /react-starter-kit/fork/pre-commit-checks.md
+---
+# Pre-Commit Checks
+
+This fork enforces strict quality standards via Husky pre-commit hooks. Before any commit is allowed, the following commands are run locally:
+
+* `bun typecheck` - Validates TypeScript types across the monorepo.
+* `bun test --run` - Runs the unified Vitest test suite.
+
+If either of these fail, the commit will be rejected. Agents should be aware of this and ensure they run these commands to verify their changes locally before attempting to commit.
+
+---
+
+---
 url: /react-starter-kit/specs/prefixed-ids.md
 ---
 # Prefixed CUID2 Database IDs
@@ -4925,15 +4939,6 @@ bun build        # Production build: email → web → api → app
 ::: info
 After modifying tRPC routes, types update automatically – no manual sync needed. After editing `db/schema/`, run `bun db:generate` then `bun db:push` to apply changes.
 :::
-
-## Pre-Commit Checks
-
-This project enforces strict quality standards via Husky pre-commit hooks. Before any commit is allowed, the following checks are run locally to ensure no failing code is pushed:
-
-* `bun typecheck` - Validates TypeScript types across the monorepo.
-* `bun test --run` - Runs the unified Vitest test suite.
-
-If either of these fail, the commit will be rejected. Always make sure to resolve type errors and failing tests before committing your work.
 
 ---
 

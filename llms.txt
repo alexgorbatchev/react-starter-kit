@@ -18,6 +18,7 @@ Skip months of setup and ship your AI-powered SaaS fast. Authentication, databas
 - [AI Agent Development Flow](/react-starter-kit/fork/agent-development.md)
 - [Local Database with PGLite](/react-starter-kit/fork/local-database-pglite.md)
 - [Upstream Sync](/react-starter-kit/fork/upstream-sync.md)
+- [Pre-Commit Checks](/react-starter-kit/fork/pre-commit-checks.md)
 
 ### Architecture
 
