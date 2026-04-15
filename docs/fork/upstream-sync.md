@@ -1,6 +1,6 @@
 # Upstream Sync
 
-Because this project is a fork of `react-starter-kit`, it's important to periodically sync updates from the upstream repository to bring in new features, bug fixes, and agent tooling improvements. 
+Because this project is a fork of `react-starter-kit`, it's important to periodically sync updates from the upstream repository to bring in new features, bug fixes, and agent tooling improvements.
 
 We provide two specialized AI agent skills to handle this process seamlessly.
 

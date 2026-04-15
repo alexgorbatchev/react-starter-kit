@@ -61,3 +61,5 @@ The following checks must pass before committing or opening a PR:
 - Document non-obvious trade-offs and decisions. Explain why, not what — every word must add value.
 - All functional changes introduced in this fork must be documented in the `docs/fork/` directory. All changes made in this repository should only go into the fork documentations, and we should not touch the original ones.
 - Tests must never, under any circumstances, output anything to the console except the error that has to be fixed. Nothing else can ever be in the console, only errors.
+
+**IMPORTANT**: This projects needs to be onboarded, see `ONBOARDING.md`.
