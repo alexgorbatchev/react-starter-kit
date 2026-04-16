@@ -26,7 +26,9 @@ export const GetMessages = rpc(
   "GET_MESSAGES",
   { channelId: z.string(), limit: z.number().default(50) },
   "MESSAGES",
-  { messages: z.array(z.object({ id: z.string(), text: z.string() })) },
+  {
+    messages: z.array(z.object({ id: z.string(), text: z.string() })),
+  },
 );
 ```
 

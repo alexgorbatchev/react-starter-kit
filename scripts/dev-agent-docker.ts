@@ -63,7 +63,9 @@ async function main() {
         "down",
         "-v",
       ],
-      { stdio: "inherit" },
+      {
+        stdio: "inherit",
+      },
     );
   };
 

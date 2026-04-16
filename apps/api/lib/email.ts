@@ -114,7 +114,9 @@ export async function sendEmail(env: ResendEmailEnv, options: IEmailOptions) {
   } catch (error) {
     throw new Error(
       `Failed to send email: ${error instanceof Error ? error.message : "Unknown error"}`,
-      { cause: error },
+      {
+        cause: error,
+      },
     );
   }
 }

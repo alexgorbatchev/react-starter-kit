@@ -77,9 +77,9 @@ export function invalidateUser(queryClient: QueryClient, userId: string) {
 Query keys should follow a hierarchical structure:
 
 ```typescript
-["resource"][("resource", "list")][("resource", "list", { filters })][ // All queries for a resource // List queries // List with filters
+["resource"][("resource", "list")][("resource", "list", { filters })][
   ("resource", "detail", id)
-][("resource", "detail", id, "related")]; // Single item queries // Nested resources
+][("resource", "detail", id, "related")]; // All queries for a resource // List queries // List with filters // Single item queries // Nested resources
 ```
 
 ## Configuration Guidelines

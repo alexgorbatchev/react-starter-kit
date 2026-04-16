@@ -1,6 +1,7 @@
+import { defineConfig } from "oxfmt";
 import createOxfmtConfig from "@alexgorbatchev/typescript-ai-policy/oxfmt-config";
 
-export default createOxfmtConfig(() => ({
+const baseConfig = createOxfmtConfig(() => ({
   ignorePatterns: [
     "app/queries/**",
     "*/dist/**",
@@ -13,4 +14,17 @@ export default createOxfmtConfig(() => ({
     ".husky/**",
     "**/*.hbs",
   ],
+  overrides: [
+    {
+      files: ["*.jsonc"],
+      options: {
+        trailingComma: "none",
+      },
+    },
+  ],
 }));
+
+export default defineConfig({
+  ...baseConfig,
+  printWidth: 80,
+});

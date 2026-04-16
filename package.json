@@ -16,16 +16,16 @@
   "scripts": {
     "dev": "bun run ./scripts/dev.ts",
     "create:user": "bun --cwd scripts create:user",
-    "format": "bun --bun oxfmt .",
-    "format:check": "bun --bun oxfmt --check .",
-    "lint": "bun --bun oxfmt . && bun --bun oxlint --deny-warnings --report-unused-disable-directives .",
-    "lint:check": "bun --bun oxfmt --check . && bun --bun oxlint --deny-warnings --report-unused-disable-directives .",
+    "format": "bun --bun oxfmt --config oxfmt.config.ts .",
+    "format:check": "bun --bun oxfmt --config oxfmt.config.ts --check .",
+    "lint": "bun --bun oxfmt --config oxfmt.config.ts . && bun --bun oxlint --deny-warnings --report-unused-disable-directives .",
+    "lint:check": "bun --bun oxfmt --config oxfmt.config.ts --check . && bun --bun oxlint --deny-warnings --report-unused-disable-directives .",
     "test": "vitest run",
     "test:watch": "vitest",
     "typecheck": "tsgo --build",
     "build:types": "tsgo --build",
     "build": "bun --filter @repo/email --filter @repo/web --filter @repo/api --filter @repo/app build",
-    "generate:types": "bun wrangler types --config apps/api/wrangler.jsonc --include-runtime=false apps/api/types/cloudflare-env.d.ts && bun --bun oxfmt apps/api/types/*-env.d.ts",
+    "generate:types": "bun wrangler types --config apps/api/wrangler.jsonc --include-runtime=false apps/api/types/cloudflare-env.d.ts && bun --bun oxfmt --config oxfmt.config.ts apps/api/types/*-env.d.ts",
     "prepare": "husky",
     "docs:dev": "vitepress dev docs",
     "docs:build": "vitepress build docs",
@@ -129,11 +129,11 @@
   },
   "lint-staged": {
     "*.{js,jsx,ts,tsx,mjs,cjs}": [
-      "bun --bun oxfmt --no-error-on-unmatched-pattern",
+      "bun --bun oxfmt --config oxfmt.config.ts --no-error-on-unmatched-pattern",
       "bun --bun oxlint --deny-warnings --report-unused-disable-directives"
     ],
     "*.json": [
-      "bun --bun oxfmt --no-error-on-unmatched-pattern"
+      "bun --bun oxfmt --config oxfmt.config.ts --no-error-on-unmatched-pattern"
     ]
   }
 }
