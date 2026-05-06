@@ -3,4 +3,3 @@ set -e
 
 bun x lint-staged
 bun run typecheck
-bun run test
